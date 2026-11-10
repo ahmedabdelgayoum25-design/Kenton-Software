@@ -25,6 +25,6 @@ export const useLangStore = create<LangState>()(
         return { lang: newLang };
       }),
     }),
-    { name: 'kenton-lang' } // حفظ اللغة في الذاكرة المحلية
+    { name: 'kenton-lang' }
   )
 );

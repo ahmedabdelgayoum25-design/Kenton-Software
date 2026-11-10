@@ -21,10 +21,3 @@ body {
 ::-webkit-scrollbar-track { background: #111827; }
 ::-webkit-scrollbar-thumb { background: #22c55e; border-radius: 4px; }
 ::-webkit-scrollbar-thumb:hover { background: #16a34a; }
-
-@keyframes float {
-  0% { transform: translateY(0px); }
-  50% { transform: translateY(-20px); }
-  100% { transform: translateY(0px); }
-}
-.animate-float { animation: float 6s ease-in-out infinite; }

@@ -2,7 +2,6 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { Code2, Menu, X, Globe } from "lucide-react";
-import { motion } from "framer-motion";
 import { useLangStore } from "@/store/langStore";
 import { translations } from "@/data/translations";
 
@@ -11,7 +10,6 @@ export default function Navbar() {
   const [mounted, setMounted] = useState(false);
   const { lang, toggleLang } = useLangStore();
   
-  // لتجنب مشاكل Hydration مع Next.js
   useEffect(() => { setMounted(true); }, []);
   if (!mounted) return null;
 
