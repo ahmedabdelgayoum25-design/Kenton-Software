@@ -39,7 +39,7 @@ export default function ZebraPage() {
             <div className="aspect-video bg-black rounded-2xl flex items-center justify-center border border-primary/20">
               <div className="text-center">
                 <BookOpen size={80} className="text-primary mx-auto mb-4 animate-float" />
-                <p className="text-primary font-bold">واجهة التطبيق</p>
+                <p className="text-primary font-bold">{t.zebraPage.appInterface}</p>
               </div>
             </div>
           </motion.div>
@@ -48,11 +48,23 @@ export default function ZebraPage() {
 
       <section className="py-20 bg-black">
         <div className="max-w-6xl mx-auto px-4 text-center">
-          <h2 className="text-3xl font-bold mb-12">مميزات نظام زيبرا</h2>
+          <h2 className="text-3xl font-bold mb-12">{t.zebraPage.featuresTitle} {t.zebraPage.featuresHighlight}</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div className="bg-surface p-6 rounded-xl border border-white/5"><Users className="text-primary mx-auto mb-4" size={32} /><h3 className="text-white font-bold">إدارة الطلاب</h3></div>
-            <div className="bg-surface p-6 rounded-xl border border-white/5"><GraduationCap className="text-primary mx-auto mb-4" size={32} /><h3 className="text-white font-bold">إدارة المعلمين</h3></div>
-            <div className="bg-surface p-6 rounded-xl border border-white/5"><CreditCard className="text-primary mx-auto mb-4" size={32} /><h3 className="text-white font-bold">الرسوم الدراسية</h3></div>
+            <div className="bg-surface p-6 rounded-xl border border-white/5">
+              <Users className="text-primary mx-auto mb-4" size={32} />
+              <h3 className="text-white font-bold">{t.zebraPage.f1Title}</h3>
+              <p className="text-xs text-gray-400 mt-2">{t.zebraPage.f1Desc}</p>
+            </div>
+            <div className="bg-surface p-6 rounded-xl border border-white/5">
+              <GraduationCap className="text-primary mx-auto mb-4" size={32} />
+              <h3 className="text-white font-bold">{t.zebraPage.f2Title}</h3>
+              <p className="text-xs text-gray-400 mt-2">{t.zebraPage.f2Desc}</p>
+            </div>
+            <div className="bg-surface p-6 rounded-xl border border-white/5">
+              <CreditCard className="text-primary mx-auto mb-4" size={32} />
+              <h3 className="text-white font-bold">{t.zebraPage.f3Title}</h3>
+              <p className="text-xs text-gray-400 mt-2">{t.zebraPage.f3Desc}</p>
+            </div>
           </div>
         </div>
       </section>

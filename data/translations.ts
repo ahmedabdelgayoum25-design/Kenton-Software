@@ -47,7 +47,12 @@ export const translations = {
     zebraPage: { 
       title: "نظام زيبرا", subtitle: "نظام متكامل لإدارة المدارس", 
       desc: "نظام زيبرا هو تطبيق سطح مكتب شامل لإدارة المدارس. يهدف إلى رقمنة جميع العمليات الإدارية من إدارة الطلاب والمعلمين إلى متابعة الرسوم الدراسية والرواتب.", 
-      download: "تحميل النسخة التجريبية", quote: "طلب عرض سعر" 
+      download: "تحميل النسخة التجريبية", quote: "طلب عرض سعر",
+      appInterface: "واجهة التطبيق",
+      featuresTitle: "مميزات", featuresHighlight: "نظام زيبرا",
+      f1Title: "إدارة الطلاب", f1Desc: "تسجيل بيانات الطلاب وأولياء الأمور.",
+      f2Title: "إدارة المعلمين", f2Desc: "بيانات المعلمين والمواد التي يدرسونها.",
+      f3Title: "الرسوم الدراسية", f3Desc: "تسجيل المدفوعات والمتبقي."
     },
     aboutPage: { title: "عن Kenton Software", desc: "نحن شركة برمجيات متخصصة في بناء تطبيقات سطح المكتب.", m1: "رسالتنا", m1Desc: "تقديم برمجيات احترافية بأسعار مناسبة.", m2: "رؤيتنا", m2Desc: "أن نكون الخيار الأول للشركات في الشرق الأوسط.", m3: "قيمنا", m3Desc: "الجودة، الشفافية، الالتزام." },
   },
@@ -99,7 +104,12 @@ export const translations = {
     zebraPage: { 
       title: "ZeBrA System", subtitle: "Integrated School Management System", 
       desc: "ZeBrA is a comprehensive school management application. It aims to digitize all administrative processes from student and teacher management to tuition fees and salaries.", 
-      download: "Download Trial", quote: "Request a Quote" 
+      download: "Download Trial", quote: "Request a Quote",
+      appInterface: "App Interface",
+      featuresTitle: "Features", featuresHighlight: "ZeBrA System",
+      f1Title: "Student Management", f1Desc: "Record student and parent data.",
+      f2Title: "Teacher Management", f2Desc: "Teacher data and subjects taught.",
+      f3Title: "Tuition Fees", f3Desc: "Record payments and remaining amounts."
     },
     aboutPage: { title: "About Kenton Software", desc: "We are a software company specialized in building integrated desktop applications.", m1: "Our Mission", m1Desc: "Provide professional software at affordable prices.", m2: "Our Vision", m2Desc: "To be the first choice for companies in the Middle East.", m3: "Our Values", m3Desc: "Quality, transparency, commitment." },
   },

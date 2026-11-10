@@ -35,7 +35,6 @@ export default function MatrixPage() {
             <p className="text-2xl text-gray-300 font-semibold">{t.matrixPage.subtitle}</p>
             <p className="text-lg text-gray-400 leading-relaxed">{t.matrixPage.desc}</p>
             <div className="flex flex-wrap gap-4 pt-4">
-              {/* استبدل # برابط تحميل التطبيق الخاص بك */}
               <a href="#" target="_blank" rel="noopener noreferrer" className="bg-primary text-black px-8 py-3 rounded-xl font-bold shadow-glow hover:bg-opacity-90 transition-all flex items-center gap-2">
                 <Download size={20} /> {t.matrixPage.download}
               </a>
