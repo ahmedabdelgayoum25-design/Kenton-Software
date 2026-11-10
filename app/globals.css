@@ -15,6 +15,7 @@ body {
   background-color: var(--color-background);
   color: var(--color-textMain);
   overflow-x: hidden;
+  font-family: var(--font-cairo), sans-serif; /* ضمان إضافي */
 }
 
 ::-webkit-scrollbar { width: 8px; }
