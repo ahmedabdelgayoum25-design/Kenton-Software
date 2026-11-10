@@ -57,7 +57,7 @@ export const translations = {
     aboutPage: { title: "عن Kenton Software", desc: "نحن شركة برمجيات متخصصة في بناء تطبيقات سطح المكتب.", m1: "رسالتنا", m1Desc: "تقديم برمجيات احترافية بأسعار مناسبة.", m2: "رؤيتنا", m2Desc: "أن نكون الخيار الأول للشركات في الشرق الأوسط.", m3: "قيمنا", m3Desc: "الجودة، الشفافية، الالتزام." },
   },
   en: {
-    nav: { home: "Home", products: "Products", about: "About Us", contact: "Contact", langBtn: "عربي" },
+    nav: { home: "Home", products: "Products", about: "About Us", contact: "Contact", langBtn: "Arabic" }, // <--- تم التعديل هنا
     hero: {
       badge: "Integrated Software Solutions",
       title: "We Build Smart Systems for Your Business",
