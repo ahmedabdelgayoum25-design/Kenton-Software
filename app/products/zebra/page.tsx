@@ -26,9 +26,9 @@ export default function ZebraPage() {
             <p className="text-2xl text-gray-300 font-semibold">{t.zebraPage.subtitle}</p>
             <p className="text-lg text-gray-400 leading-relaxed">{t.zebraPage.desc}</p>
             <div className="flex flex-wrap gap-4 pt-4">
-              <a href="#" target="_blank" rel="noopener noreferrer" className="bg-primary text-black px-8 py-3 rounded-xl font-bold shadow-glow hover:bg-opacity-90 transition-all flex items-center gap-2">
-                <Download size={20} /> {t.zebraPage.download}
-              </a>
+              <Link href="/request" className="bg-primary text-black px-8 py-3 rounded-xl font-bold shadow-glow hover:bg-opacity-90 transition-all flex items-center gap-2">
+                <Download size={20} /> {t.zebraPage.buyNow} ($100)
+              </Link>
               <Link href="/#contact" className="border border-primary/50 text-primary px-8 py-3 rounded-xl font-bold hover:bg-primary/10 transition-all">
                 {t.zebraPage.quote}
               </Link>

@@ -30,6 +30,7 @@ export const translations = {
       title: "نظام ماتريكس", subtitle: "الحل المتكامل لإدارة الصيدليات", 
       desc: "نظام ماتريكس هو تطبيق سطح مكتب احترافي صمم خصيصاً لإدارة الصيدليات. يغطي جميع احتياجاتك من إدارة المخزون والدواء إلى المبيعات والفواتير.", 
       download: "تحميل النسخة التجريبية", quote: "طلب عرض سعر",
+      buyNow: "اشترِ الآن",
       featuresTitle: "مميزات", featuresHighlight: "النظام", featuresDesc: "كل ما تحتاجه لإدارة صيدليتك بكفاءة.",
       whyTitle: "لماذا تختار ماتريكس؟",
       why1: "واجهة سهلة الاستخدام تناسب جميع المستويات.",
@@ -48,6 +49,7 @@ export const translations = {
       title: "نظام زيبرا", subtitle: "نظام متكامل لإدارة المدارس", 
       desc: "نظام زيبرا هو تطبيق سطح مكتب شامل لإدارة المدارس. يهدف إلى رقمنة جميع العمليات الإدارية من إدارة الطلاب والمعلمين إلى متابعة الرسوم الدراسية والرواتب.", 
       download: "تحميل النسخة التجريبية", quote: "طلب عرض سعر",
+      buyNow: "اشترِ الآن",
       appInterface: "واجهة التطبيق",
       featuresTitle: "مميزات", featuresHighlight: "نظام زيبرا",
       f1Title: "إدارة الطلاب", f1Desc: "تسجيل بيانات الطلاب وأولياء الأمور.",
@@ -55,9 +57,20 @@ export const translations = {
       f3Title: "الرسوم الدراسية", f3Desc: "تسجيل المدفوعات والمتبقي."
     },
     aboutPage: { title: "عن Kenton Software", desc: "نحن شركة برمجيات متخصصة في بناء تطبيقات سطح المكتب.", m1: "رسالتنا", m1Desc: "تقديم برمجيات احترافية بأسعار مناسبة.", m2: "رؤيتنا", m2Desc: "أن نكون الخيار الأول للشركات في الشرق الأوسط.", m3: "قيمنا", m3Desc: "الجودة، الشفافية، الالتزام." },
+    requestPage: {
+      title: "شراء التطبيق",
+      desc: "لإتمام عملية الشراء، يرجى التواصل معنا مباشرة عبر رقم الهاتف أدناه. سعر التطبيق الواحد هو 100 دولار أمريكي.",
+      priceLabel: "سعر التطبيق",
+      priceValue: "100 دولار أمريكي",
+      contactLabel: "للتواصل والدفع، اتصل بنا على:",
+      phoneNumber: "+250 796581584",
+      whatsappBtn: "تواصل عبر واتساب",
+      callBtn: "اتصال هاتفي",
+      backHome: "العودة للرئيسية"
+    },
   },
   en: {
-    nav: { home: "Home", products: "Products", about: "About Us", contact: "Contact", langBtn: "Arabic" }, // <--- تم التعديل هنا
+    nav: { home: "Home", products: "Products", about: "About Us", contact: "Contact", langBtn: "Arabic" },
     hero: {
       badge: "Integrated Software Solutions",
       title: "We Build Smart Systems for Your Business",
@@ -87,6 +100,7 @@ export const translations = {
       title: "mAtReX System", subtitle: "The Integrated Pharmacy Solution", 
       desc: "mAtReX is a professional desktop application designed specifically for pharmacy management. It covers all your needs from inventory to sales and invoices.", 
       download: "Download Trial", quote: "Request a Quote",
+      buyNow: "Buy Now",
       featuresTitle: "System", featuresHighlight: "Features", featuresDesc: "Everything you need to manage your pharmacy efficiently.",
       whyTitle: "Why Choose mAtReX?",
       why1: "Easy-to-use interface suitable for all levels.",
@@ -105,6 +119,7 @@ export const translations = {
       title: "ZeBrA System", subtitle: "Integrated School Management System", 
       desc: "ZeBrA is a comprehensive school management application. It aims to digitize all administrative processes from student and teacher management to tuition fees and salaries.", 
       download: "Download Trial", quote: "Request a Quote",
+      buyNow: "Buy Now",
       appInterface: "App Interface",
       featuresTitle: "Features", featuresHighlight: "ZeBrA System",
       f1Title: "Student Management", f1Desc: "Record student and parent data.",
@@ -112,5 +127,16 @@ export const translations = {
       f3Title: "Tuition Fees", f3Desc: "Record payments and remaining amounts."
     },
     aboutPage: { title: "About Kenton Software", desc: "We are a software company specialized in building integrated desktop applications.", m1: "Our Mission", m1Desc: "Provide professional software at affordable prices.", m2: "Our Vision", m2Desc: "To be the first choice for companies in the Middle East.", m3: "Our Values", m3Desc: "Quality, transparency, commitment." },
+    requestPage: {
+      title: "Purchase Application",
+      desc: "To complete your purchase, please contact us directly via the phone number below. The price per application is $100 USD.",
+      priceLabel: "Application Price",
+      priceValue: "$100 USD",
+      contactLabel: "To contact and pay, call us at:",
+      phoneNumber: "+250 796581584",
+      whatsappBtn: "Contact via WhatsApp",
+      callBtn: "Phone Call",
+      backHome: "Back to Home"
+    },
   },
 };
