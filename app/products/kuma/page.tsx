@@ -43,9 +43,16 @@ export default function KumaPage() {
               </Link>
             </div>
           </motion.div>
+          
           <motion.div initial={{ opacity: 0, x: 50 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.8, delay: 0.2 }} className="flex-1 bg-surface p-4 rounded-3xl border border-primary/30 shadow-2xl relative">
-            <div className="aspect-video bg-black rounded-2xl flex items-center justify-center border border-primary/20 overflow-hidden">
-              <div className="text-center">
+            <div className="aspect-video bg-black rounded-2xl flex items-center justify-center border border-primary/20 overflow-hidden relative">
+              <img 
+                src="/images/kuma-preview.png" 
+                alt="Kuma Interface" 
+                className="w-full h-full object-cover absolute inset-0"
+                onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }}
+              />
+              <div className="text-center absolute inset-0 flex flex-col items-center justify-center pointer-events-none">
                 <Store size={80} className="text-primary mx-auto mb-4 animate-float" />
                 <p className="text-primary font-bold">{t.kumaPage.appInterface}</p>
               </div>
@@ -60,6 +67,7 @@ export default function KumaPage() {
             <h2 className="text-4xl font-bold mb-4">{t.kumaPage.featuresTitle} <span className="text-primary">{t.kumaPage.featuresHighlight}</span></h2>
             <p className="text-gray-400">{t.kumaPage.featuresDesc}</p>
           </div>
+          
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {features.map((feature, index) => (
               <motion.div key={index} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: index * 0.1 }} viewport={{ once: true }} className="bg-surface p-6 rounded-2xl border border-primary/10 hover:border-primary/50 transition-all">
