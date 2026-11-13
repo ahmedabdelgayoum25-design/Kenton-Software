@@ -4,6 +4,7 @@ import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import WelcomePopup from "@/components/WelcomePopup";
+import DirectionProvider from "@/components/DirectionProvider"; // ✅ استيراد المكون
 
 const cairo = Cairo({ subsets: ["arabic", "latin"] });
 
@@ -18,12 +19,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
+    // ✅ القيم الافتراضية (سيتم تحديثها بواسطة DirectionProvider)
     <html lang="ar" dir="rtl">
       <body className={`${cairo.className} bg-background text-textMain`}>
-        <WelcomePopup />
-        <Navbar />
-        <main className="pt-20">{children}</main>
-        <Footer />
+        <DirectionProvider>
+          <WelcomePopup />
+          <Navbar />
+          <main className="pt-20">{children}</main>
+          <Footer />
+        </DirectionProvider>
       </body>
     </html>
   );

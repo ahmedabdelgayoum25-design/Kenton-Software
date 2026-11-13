@@ -22,12 +22,10 @@ export default function Navbar() {
     <nav className="fixed top-0 w-full z-50 bg-black/80 backdrop-blur-md border-b border-white/10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
-          {/* الشعار */}
           <Link href="/" className="text-2xl font-black text-white">
             Kenton Software
           </Link>
 
-          {/* ✅ الروابط (تم حذف الأجهزة والسوفت وير) */}
           <div className="hidden md:flex items-center gap-8">
             <Link href="/" className="text-gray-300 hover:text-primary transition-colors font-medium">{t.nav.home}</Link>
             <Link href="/#products" className="text-gray-300 hover:text-primary transition-colors font-medium">{t.nav.products}</Link>
@@ -35,7 +33,6 @@ export default function Navbar() {
             <Link href="/#contact" className="text-gray-300 hover:text-primary transition-colors font-medium">{t.nav.contact}</Link>
           </div>
 
-          {/* زر اللغة */}
           <button onClick={toggleLang} className="flex items-center gap-2 px-4 py-2 rounded-lg bg-white/5 hover:bg-white/10 transition-colors text-sm font-bold text-white">
             <Globe size={18} />
             {t.nav.langBtn}
