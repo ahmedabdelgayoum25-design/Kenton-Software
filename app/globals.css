@@ -1,10 +1,10 @@
 @import "tailwindcss";
 
 @theme {
-  --color-background: #0f172a; /* أزرق داكن جداً */
-  --color-surface: #1e293b;    /* أزرق داكن */
-  --color-primary: #3b82f6;    /* أزرق فاتح */
-  --color-textMain: #f8fafc;   /* أبيض مائل للرمادي */
+  --color-background: #111111;
+  --color-surface: #1f1f1f;
+  --color-primary: #d4d4d4; /* رمادي فاتح */
+  --color-textMain: #ffffff;
 }
 
 body {

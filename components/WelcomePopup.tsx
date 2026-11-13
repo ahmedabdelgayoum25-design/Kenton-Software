@@ -40,7 +40,6 @@ export default function WelcomePopup() {
           transition={{ duration: 0.4, type: "spring" }}
           className="fixed top-24 left-1/2 -translate-x-1/2 z-[100] w-[85%] max-w-xs"
         >
-          {/* ✅ بطاقة صغيرة وأنيقة */}
           <div className="bg-surface/95 backdrop-blur-md border border-primary/30 rounded-2xl p-4 shadow-xl shadow-primary/20 relative">
             <button
               onClick={() => setIsVisible(false)}
@@ -50,7 +49,6 @@ export default function WelcomePopup() {
             </button>
 
             <div className="flex items-center gap-3">
-              {/* ✅ قطة مبتسمة مع حركة خفيفة */}
               <motion.div
                 animate={{ y: [0, -5, 0] }}
                 transition={{ duration: 2, repeat: Infinity, repeatType: "reverse" }}
@@ -61,8 +59,9 @@ export default function WelcomePopup() {
               
               <div className="flex-1">
                 <h2 className="text-sm font-bold text-white leading-tight">{greeting}</h2>
+                {/* ✅ الرسالة الترحيبية الكاملة */}
                 <p className="text-[11px] text-gray-400">
-                  {lang === 'ar' ? "مرحباً بك في Kenton" : "Welcome to Kenton"}
+                  {lang === 'ar' ? "مرحباً بك في Kenton Software" : "Welcome to Kenton Software"}
                 </p>
               </div>
             </div>
