@@ -14,7 +14,6 @@ export default function AboutPage() {
 
   const t = translations[lang];
 
-  // ✅ تم إزالة استيراد ContactSection و FeaturesSection لحل مشكلة البناء
   return (
     <main className="min-h-screen bg-background text-textMain pt-20">
       <section className="py-20 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto">
