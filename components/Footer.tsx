@@ -13,8 +13,8 @@ export default function Footer() {
 
   return (
     <footer className="bg-black py-8 border-t border-white/10 text-center text-gray-500 text-sm">
-      {/* ✅ النص المطلوب فقط بدون تاريخ أو علامة */}
-      <p>جميع الحقوق محفوظة Kenton Software</p>
+      {/* ✅ النص يتغير حسب اللغة المختارة */}
+      <p>{t.footer.rights}</p>
     </footer>
   );
 }

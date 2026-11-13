@@ -23,7 +23,7 @@ export default function Home() {
       icon: <Pill size={40} />,
       price: "150 FRw",
       href: "/products/matrix",
-      image: "/matrix-icon.png", // ✅ مسار الصحيح
+      image: "/matrix-icon.png",
     },
     {
       id: "zebra",
@@ -32,7 +32,7 @@ export default function Home() {
       icon: <BookOpen size={40} />,
       price: "150 FRw",
       href: "/products/zebra",
-      image: "/zebra-icon.png", // ✅ مسار الصحيح
+      image: "/zebra-icon.png",
     },
     {
       id: "kuma",
@@ -41,7 +41,7 @@ export default function Home() {
       icon: <Store size={40} />,
       price: "150 FRw",
       href: "/products/kuma",
-      image: "/kuma-icon.png", // ✅ مسار الصحيح
+      image: "/kuma-icon.png",
     },
   ];
 
@@ -84,14 +84,11 @@ export default function Home() {
             {products.map((product, index) => (
               <motion.div key={product.id} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: index * 0.1 }} viewport={{ once: true }} className="bg-surface p-6 rounded-2xl border border-primary/10 hover:border-primary/50 transition-all group">
                 <div className="w-16 h-16 bg-primary/10 rounded-xl flex items-center justify-center text-primary mb-6 group-hover:scale-110 transition-transform overflow-hidden relative">
-                  {/* ✅ عرض الصورة، وإذا فشلت تظهر الأيقونة */}
                   <img 
                     src={product.image} 
                     alt={product.title} 
                     className="w-full h-full object-contain p-2 absolute inset-0 z-10" 
-                    onError={(e) => {
-                      (e.target as HTMLImageElement).style.display = 'none';
-                    }}
+                    onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }}
                   />
                   <div className="absolute inset-0 flex items-center justify-center z-0">
                     {product.icon}
@@ -114,6 +111,7 @@ export default function Home() {
       <section id="features" className="py-24 bg-background">
         <div className="max-w-5xl mx-auto px-4">
           <div className="text-center mb-16">
+            {/* ✅ استخدام الترجمة هنا بدلاً من كتابة النص مباشرة */}
             <h2 className="text-3xl font-bold text-white mb-4">{t.features.title}</h2>
             <p className="text-gray-400">{t.features.desc}</p>
           </div>

@@ -26,7 +26,7 @@ export const translations = {
       title: "تواصل معنا", desc: "هل لديك استفسار؟ فريقنا جاهز لمساعدتك.",
       phone: "الهاتف", location: "الموقع", locationValue: "كيغالي، رواندا",
     },
-    footer: { rights: "جميع الحقوق محفوظة." },
+    footer: { rights: "جميع الحقوق محفوظة Kenton Software" },
     matrixPage: { 
       title: "نظام ماتريكس", subtitle: "الحل المتكامل لإدارة الصيدليات", 
       desc: "نظام ماتريكس هو تطبيق سطح مكتب احترافي صمم خصيصاً لإدارة الصيدليات. يغطي جميع احتياجاتك من إدارة المخزون والدواء إلى المبيعات والفواتير.", 
@@ -106,7 +106,7 @@ export const translations = {
       kumaTitle: "Kuma System", kumaDesc: "An integrated system for store management.",
     },
     features: {
-      title: "Why Choose Us?", desc: "We offer a unique software experience.",
+      title: "Why Choose Us?", desc: "We offer a unique software experience.", // ✅ علامة الاستفهام داخل النص
       f1Title: "High Security", f1Desc: "Your data is protected with the highest standards.",
       f2Title: "Fast Performance", f2Desc: "Fast apps that don't consume your device resources.",
       f3Title: "Technical Support", f3Desc: "A specialized support team to help you.",
@@ -116,7 +116,7 @@ export const translations = {
       title: "Contact Us", desc: "Have a question? Our team is ready to help.",
       phone: "Phone", location: "Location", locationValue: "Kigali, Rwanda",
     },
-    footer: { rights: "All rights reserved." },
+    footer: { rights: "All rights reserved Kenton Software" }, // ✅ النص الإنجليزي
     matrixPage: { 
       title: "mAtReX System", subtitle: "The Integrated Pharmacy Solution", 
       desc: "mAtReX is a professional desktop application designed specifically for pharmacy management. It covers all your needs from inventory to sales and invoices.", 
