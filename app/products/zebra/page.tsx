@@ -1,6 +1,6 @@
 "use client";
 import { motion } from "framer-motion";
-import { ArrowRight, BookOpen, Users, GraduationCap, School, CreditCard, Wallet, Download, CheckCircle2 } from "lucide-react";
+import { ArrowRight, BookOpen, Users, GraduationCap, CreditCard, Download } from "lucide-react";
 import Link from "next/link";
 import { useState, useEffect } from "react";
 import { useLangStore } from "@/store/langStore";
@@ -27,16 +27,15 @@ export default function ZebraPage() {
             <p className="text-lg text-gray-400 leading-relaxed">{t.zebraPage.desc}</p>
             <div className="flex flex-wrap gap-4 pt-4">
               <Link href="/request" className="bg-primary text-black px-8 py-3 rounded-xl font-bold shadow-glow hover:bg-opacity-90 transition-all flex items-center gap-2">
-                <Download size={20} /> {t.zebraPage.buyNow} ($100)
+                <Download size={20} /> {t.zebraPage.buyNow} (150 FRw)
               </Link>
               <Link href="/#contact" className="border border-primary/50 text-primary px-8 py-3 rounded-xl font-bold hover:bg-primary/10 transition-all">
                 {t.zebraPage.quote}
               </Link>
             </div>
           </motion.div>
-          
           <motion.div initial={{ opacity: 0, x: 50 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.8, delay: 0.2 }} className="flex-1 bg-surface p-4 rounded-3xl border border-primary/30 shadow-2xl relative">
-            <div className="aspect-video bg-black rounded-2xl flex items-center justify-center border border-primary/20">
+            <div className="aspect-video bg-black rounded-2xl flex items-center justify-center border border-primary/20 overflow-hidden">
               <div className="text-center">
                 <BookOpen size={80} className="text-primary mx-auto mb-4 animate-float" />
                 <p className="text-primary font-bold">{t.zebraPage.appInterface}</p>
@@ -48,7 +47,7 @@ export default function ZebraPage() {
 
       <section className="py-20 bg-black">
         <div className="max-w-6xl mx-auto px-4 text-center">
-          <h2 className="text-3xl font-bold mb-12">{t.zebraPage.featuresTitle} {t.zebraPage.featuresHighlight}</h2>
+          <h2 className="text-3xl font-bold mb-12">{t.zebraPage.featuresTitle} <span className="text-primary">{t.zebraPage.featuresHighlight}</span></h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <div className="bg-surface p-6 rounded-xl border border-white/5">
               <Users className="text-primary mx-auto mb-4" size={32} />
