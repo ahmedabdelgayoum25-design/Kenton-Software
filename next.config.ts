@@ -1,7 +1,6 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
   experimental: {
     agentFeedback: true,
   },
@@ -15,12 +14,8 @@ const nextConfig: NextConfig = {
       },
     },
   },
-  // ✅ هذا هو السطر السحري الذي سيمنع فشل البناء
   typescript: {
     ignoreBuildErrors: true,
-  },
-  eslint: {
-    ignoreDuringBuilds: true,
   },
 };
 
