@@ -1,15 +1,17 @@
 "use client";
 import { motion } from "framer-motion";
-import { ArrowRight, Pill, BookOpen, Store, Shield, Zap, Headphones, Code, Phone, MapPin, Wrench } from "lucide-react";
+import { ArrowRight, Pill, BookOpen, Store, Shield, Zap, Headphones, Code, Phone, MapPin, Wrench, MessageSquare } from "lucide-react";
 import Link from "next/link";
 import { useState, useEffect } from "react";
 import { useLangStore } from "@/store/langStore";
 import { translations } from "@/data/translations";
 import SoftwarePopup from "@/components/SoftwarePopup";
+import RequestSystemPopup from "@/components/RequestSystemPopup"; // ✅ استيراد النافذة الجديدة
 
 export default function Home() {
   const [mounted, setMounted] = useState(false);
   const [isSoftwareOpen, setIsSoftwareOpen] = useState(false);
+  const [isRequestOpen, setIsRequestOpen] = useState(false); // ✅ حالة فتح نافذة طلب النظام
   const { lang } = useLangStore();
   useEffect(() => { setMounted(true); }, []);
   if (!mounted) return null;
@@ -45,8 +47,7 @@ export default function Home() {
       href: "/products/kuma",
       image: "/kuma-icon.png",
     },
-    // ✅ تم حذف بطاقة الأجهزة الإلكترونية
-    // ✅ بطاقة السوفت وير (تفتح النافذة)
+    // ✅ بطاقة السوفت وير
     {
       id: "software",
       title: isRtl ? "خدمات السوفت وير" : "Software Services",
@@ -56,6 +57,17 @@ export default function Home() {
       href: "#",
       image: "",
       onClick: () => setIsSoftwareOpen(true),
+    },
+    // ✅ بطاقة طلب نظام مخصص
+    {
+      id: "request-system",
+      title: isRtl ? "اطلب نظامك الخاص" : "Request Custom System",
+      desc: isRtl ? "صف النظام الذي تريده وسنقوم بإنشائه لك." : "Describe the system you want and we'll build it for you.",
+      icon: <MessageSquare size={40} />,
+      price: isRtl ? "اطلب الآن" : "Request Now",
+      href: "#",
+      image: "",
+      onClick: () => setIsRequestOpen(true),
     },
   ];
 
@@ -68,7 +80,9 @@ export default function Home() {
 
   return (
     <main className="min-h-screen bg-background text-textMain">
+      {/* ✅ النوافذ المنبثقة */}
       <SoftwarePopup isOpen={isSoftwareOpen} onClose={() => setIsSoftwareOpen(false)} />
+      <RequestSystemPopup isOpen={isRequestOpen} onClose={() => setIsRequestOpen(false)} />
 
       <section className="relative pt-32 pb-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto text-center">
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}>
