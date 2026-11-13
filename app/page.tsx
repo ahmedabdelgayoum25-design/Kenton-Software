@@ -1,13 +1,15 @@
 "use client";
 import { motion } from "framer-motion";
-import { ArrowRight, Pill, BookOpen, Store, Shield, Zap, Headphones, Code, Phone, MapPin } from "lucide-react";
+import { ArrowRight, Pill, BookOpen, Store, Shield, Zap, Headphones, Code, Phone, MapPin, Laptop, Wrench, Monitor } from "lucide-react";
 import Link from "next/link";
 import { useState, useEffect } from "react";
 import { useLangStore } from "@/store/langStore";
 import { translations } from "@/data/translations";
+import SoftwarePopup from "@/components/SoftwarePopup"; // ✅ استيراد النافذة
 
 export default function Home() {
   const [mounted, setMounted] = useState(false);
+  const [isSoftwareOpen, setIsSoftwareOpen] = useState(false); // ✅ حالة فتح النافذة
   const { lang } = useLangStore();
   useEffect(() => { setMounted(true); }, []);
   if (!mounted) return null;
@@ -43,6 +45,27 @@ export default function Home() {
       href: "/products/kuma",
       image: "/kuma-icon.png",
     },
+    // ✅ بطاقة الأجهزة
+    {
+      id: "devices",
+      title: isRtl ? "الأجهزة الإلكترونية" : "Electronic Devices",
+      desc: isRtl ? "تصفح أحدث الأجهزة الإلكترونية بأسعار تنافسية." : "Browse the latest electronic devices at competitive prices.",
+      icon: <Laptop size={40} />,
+      price: isRtl ? "اطلب الآن" : "Order Now",
+      href: "/devices",
+      image: "",
+    },
+    // ✅ بطاقة السوفت وير (تفتح النافذة بدلاً من الانتقال لصفحة)
+    {
+      id: "software",
+      title: isRtl ? "خدمات السوفت وير" : "Software Services",
+      desc: isRtl ? "تثبيت ويندوز وأوفيس وبرامج أخرى مع التنشيط." : "Install Windows, Office, and other software with activation.",
+      icon: <Wrench size={40} />,
+      price: isRtl ? "اطلب الخدمة" : "Order Service",
+      href: "#", // لا ينتقل لأي صفحة
+      image: "",
+      onClick: () => setIsSoftwareOpen(true), // ✅ فتح النافذة
+    },
   ];
 
   const features = [
@@ -54,6 +77,10 @@ export default function Home() {
 
   return (
     <main className="min-h-screen bg-background text-textMain">
+      {/* ✅ نافذة خدمات السوفت وير */}
+      <SoftwarePopup isOpen={isSoftwareOpen} onClose={() => setIsSoftwareOpen(false)} />
+
+      {/* قسم الترحيب */}
       <section className="relative pt-32 pb-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto text-center">
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}>
           <span className="inline-block py-1 px-3 rounded-full bg-primary/10 text-primary text-sm font-semibold mb-6 border border-primary/20">
@@ -74,22 +101,25 @@ export default function Home() {
         </motion.div>
       </section>
 
+      {/* قسم المنتجات والخدمات */}
       <section id="products" className="py-20 bg-black">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold mb-4">{t.products.title}</h2>
+            <h2 className="text-4xl font-bold mb-4">{isRtl ? "منتجاتنا وخدماتنا" : "Our Products & Services"}</h2>
             <p className="text-gray-400">{t.products.desc}</p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {products.map((product, index) => (
               <motion.div key={product.id} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: index * 0.1 }} viewport={{ once: true }} className="bg-surface p-6 rounded-2xl border border-primary/10 hover:border-primary/50 transition-all group">
                 <div className="w-16 h-16 bg-primary/10 rounded-xl flex items-center justify-center text-primary mb-6 group-hover:scale-110 transition-transform overflow-hidden relative">
-                  <img 
-                    src={product.image} 
-                    alt={product.title} 
-                    className="w-full h-full object-contain p-2 absolute inset-0 z-10" 
-                    onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }}
-                  />
+                  {product.image && (
+                    <img 
+                      src={product.image} 
+                      alt={product.title} 
+                      className="w-full h-full object-contain p-2 absolute inset-0 z-10" 
+                      onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }}
+                    />
+                  )}
                   <div className="absolute inset-0 flex items-center justify-center z-0">
                     {product.icon}
                   </div>
@@ -98,9 +128,15 @@ export default function Home() {
                 <p className="text-gray-400 mb-6">{product.desc}</p>
                 <div className="flex items-center justify-between mt-auto pt-4 border-t border-white/5">
                   <span className="text-primary font-black text-xl">{product.price}</span>
-                  <Link href={product.href} className="text-sm font-bold flex items-center gap-1 hover:gap-2 transition-all">
-                    {t.products.readMore} <ArrowRight size={16} className={isRtl ? 'rotate-180' : ''} />
-                  </Link>
+                  {product.onClick ? (
+                    <button onClick={product.onClick} className="text-sm font-bold flex items-center gap-1 hover:gap-2 transition-all">
+                      {t.products.readMore} <ArrowRight size={16} className={isRtl ? 'rotate-180' : ''} />
+                    </button>
+                  ) : (
+                    <Link href={product.href} className="text-sm font-bold flex items-center gap-1 hover:gap-2 transition-all">
+                      {t.products.readMore} <ArrowRight size={16} className={isRtl ? 'rotate-180' : ''} />
+                    </Link>
+                  )}
                 </div>
               </motion.div>
             ))}
@@ -108,10 +144,10 @@ export default function Home() {
         </div>
       </section>
 
+      {/* قسم المميزات */}
       <section id="features" className="py-24 bg-background">
         <div className="max-w-5xl mx-auto px-4">
           <div className="text-center mb-16">
-            {/* ✅ استخدام الترجمة هنا بدلاً من كتابة النص مباشرة */}
             <h2 className="text-3xl font-bold text-white mb-4">{t.features.title}</h2>
             <p className="text-gray-400">{t.features.desc}</p>
           </div>
@@ -127,6 +163,7 @@ export default function Home() {
         </div>
       </section>
 
+      {/* قسم التواصل */}
       <section id="contact" className="py-24 bg-black">
         <div className="max-w-4xl mx-auto px-4 text-center">
           <h2 className="text-3xl font-bold text-white mb-4">{t.contact.title}</h2>
