@@ -44,7 +44,6 @@ export default function Home() {
 
   return (
     <main className="min-h-screen bg-background text-textMain">
-      {/* قسم الترحيب */}
       <section className="relative pt-32 pb-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto text-center">
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}>
           <span className="inline-block py-1 px-3 rounded-full bg-primary/10 text-primary text-sm font-semibold mb-6 border border-primary/20">
@@ -65,7 +64,6 @@ export default function Home() {
         </motion.div>
       </section>
 
-      {/* قسم المنتجات */}
       <section id="products" className="py-20 bg-black">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
