@@ -14,51 +14,46 @@ export default function SoftwarePopup({ isOpen, onClose }: SoftwarePopupProps) {
   const isRtl = lang === 'ar';
   const [customProgram, setCustomProgram] = useState("");
 
-  // رقم الواتساب (بدون علامة +)
   const whatsappNumber = "250796581584";
 
+  // ✅ تم إزالة الأسعار من الخدمات
   const services = [
     {
       id: 1,
       title: isRtl ? "تثبيت ويندوز 7" : "Windows 7 Installation",
       desc: isRtl ? "تثبيت ويندوز 7 مع التنشيط الكامل." : "Install Windows 7 with full activation.",
-      price: "15,000 FRw",
       icon: <Monitor size={32} />,
     },
     {
       id: 2,
       title: isRtl ? "تثبيت ويندوز 8 / 8.1" : "Windows 8 / 8.1 Installation",
       desc: isRtl ? "تثبيت ويندوز 8 / 8.1 مع التنشيط الكامل." : "Install Windows 8 / 8.1 with full activation.",
-      price: "18,000 FRw",
       icon: <Monitor size={32} />,
     },
     {
       id: 3,
       title: isRtl ? "تثبيت ويندوز 10" : "Windows 10 Installation",
       desc: isRtl ? "تثبيت ويندوز 10 مع التنشيط الكامل." : "Install Windows 10 with full activation.",
-      price: "20,000 FRw",
       icon: <Monitor size={32} />,
     },
     {
       id: 4,
       title: isRtl ? "تثبيت ويندوز 11" : "Windows 11 Installation",
       desc: isRtl ? "تثبيت ويندوز 11 مع التنشيط الكامل." : "Install Windows 11 with full activation.",
-      price: "25,000 FRw",
       icon: <Monitor size={32} />,
     },
     {
       id: 5,
       title: isRtl ? "حزمة Microsoft Office (كاملة)" : "Microsoft Office (Full Package)",
       desc: isRtl ? "تثبيت Word, Excel, PowerPoint, Access مع التنشيط." : "Install Word, Excel, PowerPoint, Access with activation.",
-      price: "30,000 FRw",
       icon: <FileText size={32} />,
     },
   ];
 
-  const handleOrder = (serviceTitle: string, price: string) => {
+  const handleOrder = (serviceTitle: string) => {
     const message = isRtl
-      ? `مرحباً، أريد طلب خدمة: ${serviceTitle} (${price})`
-      : `Hello, I want to order service: ${serviceTitle} (${price})`;
+      ? `مرحباً، أريد طلب خدمة: ${serviceTitle}`
+      : `Hello, I want to order service: ${serviceTitle}`;
     window.open(`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`, '_blank');
   };
 
@@ -117,13 +112,13 @@ export default function SoftwarePopup({ isOpen, onClose }: SoftwarePopupProps) {
                   <div className="flex-1">
                     <h3 className="font-bold text-white text-lg mb-1">{service.title}</h3>
                     <p className="text-gray-400 text-xs mb-3">{service.desc}</p>
-                    <div className="flex items-center justify-between">
-                      <span className="text-primary font-black">{service.price}</span>
+                    <div className="flex items-center justify-end">
+                      {/* ✅ زر اطلب بدون سعر */}
                       <button 
-                        onClick={() => handleOrder(service.title, service.price)}
-                        className="bg-primary text-black px-3 py-1 rounded-lg text-xs font-bold hover:bg-opacity-90 transition-all flex items-center gap-1"
+                        onClick={() => handleOrder(service.title)}
+                        className="bg-primary text-black px-4 py-1.5 rounded-lg text-xs font-bold hover:bg-opacity-90 transition-all flex items-center gap-1"
                       >
-                        <CheckCircle2 size={12} />
+                        <CheckCircle2 size={14} />
                         {isRtl ? "اطلب" : "Order"}
                       </button>
                     </div>

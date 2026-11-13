@@ -14,15 +14,15 @@ export default function WelcomePopup() {
     const isRtl = lang === 'ar';
 
     if (hour >= 5 && hour < 12) {
-      setGreeting(isRtl ? "صباح الخير! ☀️" : "Good Morning! ☀️");
+      setGreeting(isRtl ? "صباح الخير!" : "Good Morning!");
     } else if (hour >= 12 && hour < 17) {
-      setGreeting(isRtl ? "نهارك سعيد! 🌤️" : "Good Afternoon! 🌤️");
+      setGreeting(isRtl ? "نهارك سعيد!" : "Good Afternoon!");
     } else {
-      setGreeting(isRtl ? "مساء الخير! 🌙" : "Good Evening! 🌙");
+      setGreeting(isRtl ? "مساء الخير!" : "Good Evening!");
     }
 
     const showTimer = setTimeout(() => setIsVisible(true), 1000);
-    const hideTimer = setTimeout(() => setIsVisible(false), 6000);
+    const hideTimer = setTimeout(() => setIsVisible(false), 5000);
 
     return () => {
       clearTimeout(showTimer);
@@ -34,34 +34,37 @@ export default function WelcomePopup() {
     <AnimatePresence>
       {isVisible && (
         <motion.div
-          initial={{ opacity: 0, y: -50, scale: 0.9 }}
+          initial={{ opacity: 0, y: -30, scale: 0.9 }}
           animate={{ opacity: 1, y: 0, scale: 1 }}
           exit={{ opacity: 0, y: -20, scale: 0.9 }}
-          transition={{ duration: 0.5, type: "spring" }}
-          className="fixed top-24 left-1/2 -translate-x-1/2 z-[100] w-[90%] max-w-sm"
+          transition={{ duration: 0.4, type: "spring" }}
+          className="fixed top-24 left-1/2 -translate-x-1/2 z-[100] w-[85%] max-w-xs"
         >
-          <div className="bg-surface border-2 border-primary/30 rounded-3xl p-6 shadow-2xl shadow-primary/20 relative overflow-hidden">
+          {/* ✅ بطاقة صغيرة وأنيقة */}
+          <div className="bg-surface/95 backdrop-blur-md border border-primary/30 rounded-2xl p-4 shadow-xl shadow-primary/20 relative">
             <button
               onClick={() => setIsVisible(false)}
-              className="absolute top-4 right-4 text-gray-500 hover:text-white transition-colors z-10"
+              className="absolute top-2 right-2 text-gray-500 hover:text-white transition-colors z-10"
             >
-              <X size={20} />
+              <X size={16} />
             </button>
 
-            <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-transparent pointer-events-none" />
-
-            <div className="relative z-0 flex flex-col items-center text-center">
+            <div className="flex items-center gap-3">
+              {/* ✅ قطة مبتسمة مع حركة خفيفة */}
               <motion.div
-                animate={{ y: [0, -10, 0], rotate: [0, 5, -5, 0] }}
-                transition={{ duration: 3, repeat: Infinity, repeatType: "reverse" }}
-                className="text-6xl mb-4"
+                animate={{ y: [0, -5, 0] }}
+                transition={{ duration: 2, repeat: Infinity, repeatType: "reverse" }}
+                className="text-4xl shrink-0"
               >
-                🐱
+                😺
               </motion.div>
-              <h2 className="text-2xl font-bold text-white mb-2">{greeting}</h2>
-              <p className="text-gray-400 text-sm">
-                {lang === 'ar' ? "مرحباً بك في Kenton Software" : "Welcome to Kenton Software"}
-              </p>
+              
+              <div className="flex-1">
+                <h2 className="text-sm font-bold text-white leading-tight">{greeting}</h2>
+                <p className="text-[11px] text-gray-400">
+                  {lang === 'ar' ? "مرحباً بك في Kenton" : "Welcome to Kenton"}
+                </p>
+              </div>
             </div>
           </div>
         </motion.div>
