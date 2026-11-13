@@ -50,10 +50,10 @@ export default function MatrixPage() {
               <img 
                 src="/images/matrix-preview.png" 
                 alt="Matrix Interface" 
-                className="w-full h-full object-cover absolute inset-0"
+                className="w-full h-full object-cover absolute inset-0 z-10"
                 onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }}
               />
-              <div className="text-center absolute inset-0 flex flex-col items-center justify-center pointer-events-none">
+              <div className="text-center absolute inset-0 flex flex-col items-center justify-center pointer-events-none z-0">
                 <Pill size={80} className="text-primary mx-auto mb-4 animate-float" />
               </div>
             </div>

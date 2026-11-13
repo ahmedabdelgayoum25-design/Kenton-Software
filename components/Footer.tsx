@@ -13,7 +13,8 @@ export default function Footer() {
 
   return (
     <footer className="bg-black py-8 border-t border-white/10 text-center text-gray-500 text-sm">
-      <p>© {new Date().getFullYear()} Kenton Software. {t.footer.rights}</p>
+      {/* ✅ النص المطلوب فقط بدون تاريخ أو علامة */}
+      <p>جميع الحقوق محفوظة Kenton Software</p>
     </footer>
   );
 }

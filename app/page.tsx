@@ -54,7 +54,6 @@ export default function Home() {
 
   return (
     <main className="min-h-screen bg-background text-textMain">
-      {/* قسم الترحيب */}
       <section className="relative pt-32 pb-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto text-center">
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}>
           <span className="inline-block py-1 px-3 rounded-full bg-primary/10 text-primary text-sm font-semibold mb-6 border border-primary/20">
@@ -75,7 +74,6 @@ export default function Home() {
         </motion.div>
       </section>
 
-      {/* قسم المنتجات */}
       <section id="products" className="py-20 bg-black">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
@@ -86,11 +84,26 @@ export default function Home() {
             {products.map((product, index) => (
               <motion.div key={product.id} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: index * 0.1 }} viewport={{ once: true }} className="bg-surface p-6 rounded-2xl border border-primary/10 hover:border-primary/50 transition-all group">
                 <div className="w-16 h-16 bg-primary/10 rounded-xl flex items-center justify-center text-primary mb-6 group-hover:scale-110 transition-transform overflow-hidden">
+                  {/* ✅ عرض الصورة إذا كانت موجودة، وإلا عرض الأيقونة */}
                   {product.image ? (
-                    <img src={product.image} alt={product.title} className="w-full h-full object-contain p-2" />
-                  ) : (
-                    product.icon
-                  )}
+                    <img 
+                      src={product.image} 
+                      alt={product.title} 
+                      className="w-full h-full object-contain p-2" 
+                      onError={(e) => {
+                        // إذا فشلت الصورة، نخفيها ونظهر الأيقونة
+                        (e.target as HTMLImageElement).style.display = 'none';
+                        const parent = (e.target as HTMLImageElement).parentElement;
+                        if (parent) {
+                          const icon = parent.querySelector('svg');
+                          if (icon) icon.style.display = 'block';
+                        }
+                      }}
+                    />
+                  ) : null}
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    {product.icon}
+                  </div>
                 </div>
                 <h3 className="text-2xl font-bold mb-2">{product.title}</h3>
                 <p className="text-gray-400 mb-6">{product.desc}</p>
@@ -106,7 +119,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* قسم المميزات */}
       <section id="features" className="py-24 bg-background">
         <div className="max-w-5xl mx-auto px-4">
           <div className="text-center mb-16">
@@ -125,7 +137,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* قسم التواصل */}
       <section id="contact" className="py-24 bg-black">
         <div className="max-w-4xl mx-auto px-4 text-center">
           <h2 className="text-3xl font-bold text-white mb-4">{t.contact.title}</h2>
