@@ -3,6 +3,7 @@ import { Cairo } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import WelcomePopup from "@/components/WelcomePopup";
 
 const cairo = Cairo({ subsets: ["arabic", "latin"] });
 
@@ -19,6 +20,7 @@ export default function RootLayout({
   return (
     <html lang="ar" dir="rtl">
       <body className={`${cairo.className} bg-background text-textMain`}>
+        <WelcomePopup />
         <Navbar />
         <main className="pt-20">{children}</main>
         <Footer />

@@ -1,15 +1,15 @@
 "use client";
 import { motion } from "framer-motion";
-import { ArrowRight, Pill, BookOpen, Store, Shield, Zap, Headphones, Code, Phone, MapPin, Laptop, Wrench, Monitor } from "lucide-react";
+import { ArrowRight, Pill, BookOpen, Store, Shield, Zap, Headphones, Code, Phone, MapPin, Wrench } from "lucide-react";
 import Link from "next/link";
 import { useState, useEffect } from "react";
 import { useLangStore } from "@/store/langStore";
 import { translations } from "@/data/translations";
-import SoftwarePopup from "@/components/SoftwarePopup"; // ✅ استيراد النافذة
+import SoftwarePopup from "@/components/SoftwarePopup";
 
 export default function Home() {
   const [mounted, setMounted] = useState(false);
-  const [isSoftwareOpen, setIsSoftwareOpen] = useState(false); // ✅ حالة فتح النافذة
+  const [isSoftwareOpen, setIsSoftwareOpen] = useState(false);
   const { lang } = useLangStore();
   useEffect(() => { setMounted(true); }, []);
   if (!mounted) return null;
@@ -45,26 +45,17 @@ export default function Home() {
       href: "/products/kuma",
       image: "/kuma-icon.png",
     },
-    // ✅ بطاقة الأجهزة
-    {
-      id: "devices",
-      title: isRtl ? "الأجهزة الإلكترونية" : "Electronic Devices",
-      desc: isRtl ? "تصفح أحدث الأجهزة الإلكترونية بأسعار تنافسية." : "Browse the latest electronic devices at competitive prices.",
-      icon: <Laptop size={40} />,
-      price: isRtl ? "اطلب الآن" : "Order Now",
-      href: "/devices",
-      image: "",
-    },
-    // ✅ بطاقة السوفت وير (تفتح النافذة بدلاً من الانتقال لصفحة)
+    // ✅ تم حذف بطاقة الأجهزة الإلكترونية
+    // ✅ بطاقة السوفت وير (تفتح النافذة)
     {
       id: "software",
       title: isRtl ? "خدمات السوفت وير" : "Software Services",
       desc: isRtl ? "تثبيت ويندوز وأوفيس وبرامج أخرى مع التنشيط." : "Install Windows, Office, and other software with activation.",
       icon: <Wrench size={40} />,
       price: isRtl ? "اطلب الخدمة" : "Order Service",
-      href: "#", // لا ينتقل لأي صفحة
+      href: "#",
       image: "",
-      onClick: () => setIsSoftwareOpen(true), // ✅ فتح النافذة
+      onClick: () => setIsSoftwareOpen(true),
     },
   ];
 
@@ -77,10 +68,8 @@ export default function Home() {
 
   return (
     <main className="min-h-screen bg-background text-textMain">
-      {/* ✅ نافذة خدمات السوفت وير */}
       <SoftwarePopup isOpen={isSoftwareOpen} onClose={() => setIsSoftwareOpen(false)} />
 
-      {/* قسم الترحيب */}
       <section className="relative pt-32 pb-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto text-center">
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}>
           <span className="inline-block py-1 px-3 rounded-full bg-primary/10 text-primary text-sm font-semibold mb-6 border border-primary/20">
@@ -101,7 +90,6 @@ export default function Home() {
         </motion.div>
       </section>
 
-      {/* قسم المنتجات والخدمات */}
       <section id="products" className="py-20 bg-black">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
@@ -144,7 +132,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* قسم المميزات */}
       <section id="features" className="py-24 bg-background">
         <div className="max-w-5xl mx-auto px-4">
           <div className="text-center mb-16">
@@ -163,7 +150,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* قسم التواصل */}
       <section id="contact" className="py-24 bg-black">
         <div className="max-w-4xl mx-auto px-4 text-center">
           <h2 className="text-3xl font-bold text-white mb-4">{t.contact.title}</h2>

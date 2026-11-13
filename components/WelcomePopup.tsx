@@ -10,7 +10,6 @@ export default function WelcomePopup() {
   const { lang } = useLangStore();
 
   useEffect(() => {
-    // 1. تحديد وقت التحية
     const hour = new Date().getHours();
     const isRtl = lang === 'ar';
 
@@ -22,15 +21,8 @@ export default function WelcomePopup() {
       setGreeting(isRtl ? "مساء الخير! 🌙" : "Good Evening! 🌙");
     }
 
-    // 2. إظهار الرسالة بعد ثانية واحدة
-    const showTimer = setTimeout(() => {
-      setIsVisible(true);
-    }, 1000);
-
-    // 3. إخفاء الرسالة تلقائياً بعد 6 ثوانٍ
-    const hideTimer = setTimeout(() => {
-      setIsVisible(false);
-    }, 6000);
+    const showTimer = setTimeout(() => setIsVisible(true), 1000);
+    const hideTimer = setTimeout(() => setIsVisible(false), 6000);
 
     return () => {
       clearTimeout(showTimer);
@@ -49,7 +41,6 @@ export default function WelcomePopup() {
           className="fixed top-24 left-1/2 -translate-x-1/2 z-[100] w-[90%] max-w-sm"
         >
           <div className="bg-surface border-2 border-primary/30 rounded-3xl p-6 shadow-2xl shadow-primary/20 relative overflow-hidden">
-            {/* زر الإغلاق */}
             <button
               onClick={() => setIsVisible(false)}
               className="absolute top-4 right-4 text-gray-500 hover:text-white transition-colors z-10"
@@ -57,31 +48,19 @@ export default function WelcomePopup() {
               <X size={20} />
             </button>
 
-            {/* خلفية متدرجة خفيفة */}
             <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-transparent pointer-events-none" />
 
             <div className="relative z-0 flex flex-col items-center text-center">
-              {/* ✅ قطة متحركة فقط (بدون أيقونات طقس) */}
               <motion.div
-                animate={{ 
-                  y: [0, -10, 0],
-                  rotate: [0, 5, -5, 0]
-                }}
-                transition={{ 
-                  duration: 3, 
-                  repeat: Infinity, 
-                  repeatType: "reverse" 
-                }}
+                animate={{ y: [0, -10, 0], rotate: [0, 5, -5, 0] }}
+                transition={{ duration: 3, repeat: Infinity, repeatType: "reverse" }}
                 className="text-6xl mb-4"
               >
                 🐱
               </motion.div>
-              
               <h2 className="text-2xl font-bold text-white mb-2">{greeting}</h2>
               <p className="text-gray-400 text-sm">
-                {lang === 'ar' 
-                  ? "مرحباً بك في Kenton Software" 
-                  : "Welcome to Kenton Software"}
+                {lang === 'ar' ? "مرحباً بك في Kenton Software" : "Welcome to Kenton Software"}
               </p>
             </div>
           </div>

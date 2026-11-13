@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { X, Monitor, FileText, ShieldCheck, Download, CheckCircle2 } from "lucide-react";
+import { X, Monitor, FileText, CheckCircle2, Send } from "lucide-react";
 import { useLangStore } from "@/store/langStore";
 
 interface SoftwarePopupProps {
@@ -12,6 +12,10 @@ interface SoftwarePopupProps {
 export default function SoftwarePopup({ isOpen, onClose }: SoftwarePopupProps) {
   const { lang } = useLangStore();
   const isRtl = lang === 'ar';
+  const [customProgram, setCustomProgram] = useState("");
+
+  // رقم الواتساب (بدون علامة +)
+  const whatsappNumber = "250796581584";
 
   const services = [
     {
@@ -49,28 +53,24 @@ export default function SoftwarePopup({ isOpen, onClose }: SoftwarePopupProps) {
       price: "30,000 FRw",
       icon: <FileText size={32} />,
     },
-    {
-      id: 6,
-      title: isRtl ? "حزمة Office 365" : "Office 365 Package",
-      desc: isRtl ? "تثبيت Office 365 مع التنشيط والتفعيل عبر الإنترنت." : "Install Office 365 with activation and online setup.",
-      price: "40,000 FRw",
-      icon: <FileText size={32} />,
-    },
-    {
-      id: 7,
-      title: isRtl ? "برامج الحماية (Antivirus)" : "Antivirus Software",
-      desc: isRtl ? "تثبيت برامج الحماية مع التنشيط." : "Install antivirus software with activation.",
-      price: "10,000 FRw",
-      icon: <ShieldCheck size={32} />,
-    },
-    {
-      id: 8,
-      title: isRtl ? "برامج التصميم (Adobe, AutoCAD)" : "Design Software (Adobe, AutoCAD)",
-      desc: isRtl ? "تثبيت برامج التصميم والهندسة مع التنشيط." : "Install design and engineering software with activation.",
-      price: "35,000 FRw",
-      icon: <Download size={32} />,
-    },
   ];
+
+  const handleOrder = (serviceTitle: string, price: string) => {
+    const message = isRtl
+      ? `مرحباً، أريد طلب خدمة: ${serviceTitle} (${price})`
+      : `Hello, I want to order service: ${serviceTitle} (${price})`;
+    window.open(`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`, '_blank');
+  };
+
+  const handleCustomOrder = () => {
+    if (!customProgram.trim()) return;
+    const message = isRtl
+      ? `مرحباً، أريد تثبيت برنامج: ${customProgram}`
+      : `Hello, I want to install this program: ${customProgram}`;
+    window.open(`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`, '_blank');
+    setCustomProgram("");
+    onClose();
+  };
 
   return (
     <AnimatePresence>
@@ -89,7 +89,6 @@ export default function SoftwarePopup({ isOpen, onClose }: SoftwarePopupProps) {
             onClick={(e) => e.stopPropagation()}
             className="bg-surface rounded-3xl border border-primary/30 shadow-2xl w-full max-w-4xl max-h-[90vh] overflow-y-auto p-6 md:p-8 relative"
           >
-            {/* زر الإغلاق */}
             <button
               onClick={onClose}
               className="absolute top-4 right-4 text-gray-400 hover:text-white transition-colors z-10 bg-black/50 rounded-full p-2"
@@ -106,7 +105,7 @@ export default function SoftwarePopup({ isOpen, onClose }: SoftwarePopupProps) {
               </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
               {services.map((service) => (
                 <div
                   key={service.id}
@@ -120,7 +119,10 @@ export default function SoftwarePopup({ isOpen, onClose }: SoftwarePopupProps) {
                     <p className="text-gray-400 text-xs mb-3">{service.desc}</p>
                     <div className="flex items-center justify-between">
                       <span className="text-primary font-black">{service.price}</span>
-                      <button className="bg-primary text-black px-3 py-1 rounded-lg text-xs font-bold hover:bg-opacity-90 transition-all flex items-center gap-1">
+                      <button 
+                        onClick={() => handleOrder(service.title, service.price)}
+                        className="bg-primary text-black px-3 py-1 rounded-lg text-xs font-bold hover:bg-opacity-90 transition-all flex items-center gap-1"
+                      >
                         <CheckCircle2 size={12} />
                         {isRtl ? "اطلب" : "Order"}
                       </button>
@@ -128,6 +130,34 @@ export default function SoftwarePopup({ isOpen, onClose }: SoftwarePopupProps) {
                   </div>
                 </div>
               ))}
+            </div>
+
+            {/* ✅ خدمة البرنامج المخصص */}
+            <div className="bg-background p-6 rounded-2xl border border-primary/30">
+              <h3 className="font-bold text-white text-lg mb-4 flex items-center gap-2">
+                <FileText className="text-primary" size={24} />
+                {isRtl ? "اطلب برنامجاً مخصصاً" : "Request a Custom Program"}
+              </h3>
+              <p className="text-gray-400 text-sm mb-4">
+                {isRtl ? "اكتب اسم البرنامج الذي تريد تثبيته وسنقوم بالتواصل معك عبر واتساب." : "Write the name of the program you want to install and we'll contact you via WhatsApp."}
+              </p>
+              <div className="flex flex-col sm:flex-row gap-3">
+                <input
+                  type="text"
+                  value={customProgram}
+                  onChange={(e) => setCustomProgram(e.target.value)}
+                  placeholder={isRtl ? "اسم البرنامج (مثلاً: Adobe Photoshop)" : "Program name (e.g., Adobe Photoshop)"}
+                  className="flex-1 bg-black/50 border border-white/10 rounded-xl px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-primary transition-colors"
+                />
+                <button
+                  onClick={handleCustomOrder}
+                  disabled={!customProgram.trim()}
+                  className="bg-primary text-black px-6 py-3 rounded-xl font-bold hover:bg-opacity-90 transition-all flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
+                >
+                  <Send size={18} />
+                  {isRtl ? "إرسال" : "Send"}
+                </button>
+              </div>
             </div>
           </motion.div>
         </motion.div>
