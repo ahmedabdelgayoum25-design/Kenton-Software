@@ -46,6 +46,7 @@ export default function KumaPage() {
           
           <motion.div initial={{ opacity: 0, x: 50 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.8, delay: 0.2 }} className="flex-1 bg-surface p-4 rounded-3xl border border-primary/30 shadow-2xl relative">
             <div className="aspect-video bg-black rounded-2xl flex items-center justify-center border border-primary/20 overflow-hidden relative">
+              {/* ✅ إظهار صورة الواجهة، وإذا لم توجد تظهر الأيقونة */}
               <img 
                 src="/images/kuma-preview.png" 
                 alt="Kuma Interface" 

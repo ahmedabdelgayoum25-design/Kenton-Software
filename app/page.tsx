@@ -23,7 +23,7 @@ export default function Home() {
       icon: <Pill size={40} />,
       price: "150 FRw",
       href: "/products/matrix",
-      image: "/images/matrix-icon.png", // ✅ تم إضافة مسار الصورة
+      image: "/images/matrix-icon.png",
     },
     {
       id: "zebra",
@@ -32,7 +32,7 @@ export default function Home() {
       icon: <BookOpen size={40} />,
       price: "150 FRw",
       href: "/products/zebra",
-      image: "/images/zebra-icon.png", // ✅ تم إضافة مسار الصورة
+      image: "/images/zebra-icon.png",
     },
     {
       id: "kuma",
@@ -41,7 +41,7 @@ export default function Home() {
       icon: <Store size={40} />,
       price: "150 FRw",
       href: "/products/kuma",
-      image: "/images/kuma-icon.png", // ✅ تم إضافة مسار الصورة
+      image: "/images/kuma-icon.png",
     },
   ];
 
@@ -55,7 +55,7 @@ export default function Home() {
   return (
     <main className="min-h-screen bg-background text-textMain">
       {/* قسم الترحيب */}
-      <section className="relative pt-20 pb-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto text-center">
+      <section className="relative pt-32 pb-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto text-center">
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}>
           <span className="inline-block py-1 px-3 rounded-full bg-primary/10 text-primary text-sm font-semibold mb-6 border border-primary/20">
             {t.hero.badge}
@@ -86,7 +86,6 @@ export default function Home() {
             {products.map((product, index) => (
               <motion.div key={product.id} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: index * 0.1 }} viewport={{ once: true }} className="bg-surface p-6 rounded-2xl border border-primary/10 hover:border-primary/50 transition-all group">
                 <div className="w-16 h-16 bg-primary/10 rounded-xl flex items-center justify-center text-primary mb-6 group-hover:scale-110 transition-transform overflow-hidden">
-                  {/* ✅ عرض الصورة إذا كانت موجودة، وإلا عرض الأيقونة */}
                   {product.image ? (
                     <img src={product.image} alt={product.title} className="w-full h-full object-contain p-2" />
                   ) : (
@@ -116,7 +115,7 @@ export default function Home() {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
             {features.map((feature, index) => (
-              <motion.div key={index} initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} className="bg-[#111] p-6 rounded-xl border border-white/5">
+              <motion.div key={index} initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} className="bg-surface p-6 rounded-xl border border-white/5">
                 <div className="text-primary mb-4">{feature.icon}</div>
                 <h3 className="text-white font-bold mb-2">{feature.title}</h3>
                 <p className="text-xs text-gray-400 leading-relaxed">{feature.desc}</p>
@@ -132,14 +131,14 @@ export default function Home() {
           <h2 className="text-3xl font-bold text-white mb-4">{t.contact.title}</h2>
           <p className="text-gray-400 mb-12">{t.contact.desc}</p>
           <div className="flex flex-col md:flex-row justify-center gap-6">
-            <div className="bg-[#111] p-6 rounded-xl border border-white/5 flex items-center gap-4 w-full md:w-auto">
+            <div className="bg-surface p-6 rounded-xl border border-white/5 flex items-center gap-4 w-full md:w-auto">
               <Phone className="text-primary" size={24} />
               <div className="text-right">
                 <p className="text-xs text-gray-500">{t.contact.phone}</p>
                 <p className="text-white font-semibold" dir="ltr">+250 796581584</p>
               </div>
             </div>
-            <div className="bg-[#111] p-6 rounded-xl border border-white/5 flex items-center gap-4 w-full md:w-auto">
+            <div className="bg-surface p-6 rounded-xl border border-white/5 flex items-center gap-4 w-full md:w-auto">
               <MapPin className="text-primary" size={24} />
               <div className="text-right">
                 <p className="text-xs text-gray-500">{t.contact.location}</p>
