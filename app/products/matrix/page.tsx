@@ -46,11 +46,11 @@ export default function MatrixPage() {
           
           <motion.div initial={{ opacity: 0, x: 50 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.8, delay: 0.2 }} className="flex-1 bg-surface p-4 rounded-3xl border border-primary/30 shadow-2xl relative">
             <div className="aspect-video bg-black rounded-2xl flex items-center justify-center border border-primary/20 overflow-hidden relative">
-              {/* ✅ إظهار الصورة فقط بدون أي نص فوقها */}
+              {/* ✅ مسار الصورة الصحيح: /matrix-preview.png */}
               <img 
-                src="/images/matrix-preview.png" 
+                src="/matrix-preview.png" 
                 alt="Matrix Interface" 
-                className="w-full h-full object-cover absolute inset-0 z-10"
+                className="w-full h-full object-contain p-4 absolute inset-0 z-10"
                 onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }}
               />
               <div className="text-center absolute inset-0 flex flex-col items-center justify-center pointer-events-none z-0">

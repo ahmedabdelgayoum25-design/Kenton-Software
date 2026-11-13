@@ -23,7 +23,7 @@ export default function Home() {
       icon: <Pill size={40} />,
       price: "150 FRw",
       href: "/products/matrix",
-      image: "/images/matrix-icon.png",
+      image: "/matrix-icon.png", // ✅ مسار الصحيح
     },
     {
       id: "zebra",
@@ -32,7 +32,7 @@ export default function Home() {
       icon: <BookOpen size={40} />,
       price: "150 FRw",
       href: "/products/zebra",
-      image: "/images/zebra-icon.png",
+      image: "/zebra-icon.png", // ✅ مسار الصحيح
     },
     {
       id: "kuma",
@@ -41,7 +41,7 @@ export default function Home() {
       icon: <Store size={40} />,
       price: "150 FRw",
       href: "/products/kuma",
-      image: "/images/kuma-icon.png",
+      image: "/kuma-icon.png", // ✅ مسار الصحيح
     },
   ];
 
@@ -83,25 +83,17 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {products.map((product, index) => (
               <motion.div key={product.id} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: index * 0.1 }} viewport={{ once: true }} className="bg-surface p-6 rounded-2xl border border-primary/10 hover:border-primary/50 transition-all group">
-                <div className="w-16 h-16 bg-primary/10 rounded-xl flex items-center justify-center text-primary mb-6 group-hover:scale-110 transition-transform overflow-hidden">
-                  {/* ✅ عرض الصورة إذا كانت موجودة، وإلا عرض الأيقونة */}
-                  {product.image ? (
-                    <img 
-                      src={product.image} 
-                      alt={product.title} 
-                      className="w-full h-full object-contain p-2" 
-                      onError={(e) => {
-                        // إذا فشلت الصورة، نخفيها ونظهر الأيقونة
-                        (e.target as HTMLImageElement).style.display = 'none';
-                        const parent = (e.target as HTMLImageElement).parentElement;
-                        if (parent) {
-                          const icon = parent.querySelector('svg');
-                          if (icon) icon.style.display = 'block';
-                        }
-                      }}
-                    />
-                  ) : null}
-                  <div className="absolute inset-0 flex items-center justify-center">
+                <div className="w-16 h-16 bg-primary/10 rounded-xl flex items-center justify-center text-primary mb-6 group-hover:scale-110 transition-transform overflow-hidden relative">
+                  {/* ✅ عرض الصورة، وإذا فشلت تظهر الأيقونة */}
+                  <img 
+                    src={product.image} 
+                    alt={product.title} 
+                    className="w-full h-full object-contain p-2 absolute inset-0 z-10" 
+                    onError={(e) => {
+                      (e.target as HTMLImageElement).style.display = 'none';
+                    }}
+                  />
+                  <div className="absolute inset-0 flex items-center justify-center z-0">
                     {product.icon}
                   </div>
                 </div>
