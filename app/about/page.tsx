@@ -1,6 +1,6 @@
 "use client";
 import { motion } from "framer-motion";
-import { Code2, Target, Eye, Heart } from "lucide-react";
+import { Heart, Eye, Target } from "lucide-react";
 import { useState, useEffect } from "react";
 import { useLangStore } from "@/store/langStore";
 import { translations } from "@/data/translations";
@@ -17,7 +17,6 @@ export default function AboutPage() {
     <main className="min-h-screen bg-background text-textMain pt-20">
       <section className="py-20 px-4 max-w-4xl mx-auto text-center">
         <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }}>
-          <Code2 size={60} className="text-primary mx-auto mb-6" />
           <h1 className="text-5xl font-black mb-6">{t.aboutPage.title}</h1>
           <p className="text-xl text-gray-400 leading-relaxed">{t.aboutPage.desc}</p>
         </motion.div>

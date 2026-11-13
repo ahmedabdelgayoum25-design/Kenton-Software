@@ -23,6 +23,7 @@ export default function Home() {
       icon: <Pill size={40} />,
       price: "150 FRw",
       href: "/products/matrix",
+      image: "/images/matrix-icon.png", // ✅ تم إضافة مسار الصورة
     },
     {
       id: "zebra",
@@ -31,6 +32,7 @@ export default function Home() {
       icon: <BookOpen size={40} />,
       price: "150 FRw",
       href: "/products/zebra",
+      image: "/images/zebra-icon.png", // ✅ تم إضافة مسار الصورة
     },
     {
       id: "kuma",
@@ -39,6 +41,7 @@ export default function Home() {
       icon: <Store size={40} />,
       price: "150 FRw",
       href: "/products/kuma",
+      image: "/images/kuma-icon.png", // ✅ تم إضافة مسار الصورة
     },
   ];
 
@@ -52,7 +55,7 @@ export default function Home() {
   return (
     <main className="min-h-screen bg-background text-textMain">
       {/* قسم الترحيب */}
-      <section className="relative pt-32 pb-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto text-center">
+      <section className="relative pt-20 pb-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto text-center">
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}>
           <span className="inline-block py-1 px-3 rounded-full bg-primary/10 text-primary text-sm font-semibold mb-6 border border-primary/20">
             {t.hero.badge}
@@ -82,8 +85,13 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {products.map((product, index) => (
               <motion.div key={product.id} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: index * 0.1 }} viewport={{ once: true }} className="bg-surface p-6 rounded-2xl border border-primary/10 hover:border-primary/50 transition-all group">
-                <div className="w-16 h-16 bg-primary/10 rounded-xl flex items-center justify-center text-primary mb-6 group-hover:scale-110 transition-transform">
-                  {product.icon}
+                <div className="w-16 h-16 bg-primary/10 rounded-xl flex items-center justify-center text-primary mb-6 group-hover:scale-110 transition-transform overflow-hidden">
+                  {/* ✅ عرض الصورة إذا كانت موجودة، وإلا عرض الأيقونة */}
+                  {product.image ? (
+                    <img src={product.image} alt={product.title} className="w-full h-full object-contain p-2" />
+                  ) : (
+                    product.icon
+                  )}
                 </div>
                 <h3 className="text-2xl font-bold mb-2">{product.title}</h3>
                 <p className="text-gray-400 mb-6">{product.desc}</p>
