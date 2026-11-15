@@ -26,7 +26,31 @@ export const translations = {
       title: "تواصل معنا", desc: "هل لديك استفسار؟ فريقنا جاهز لمساعدتك.",
       phone: "الهاتف", location: "الموقع", locationValue: "كيغالي، رواندا",
     },
-    footer: { rights: "جميع الحقوق محفوظة Kenton Software" },
+    footer: { 
+      rights: "جميع الحقوق محفوظة Kenton Software",
+      quickLinks: "روابط سريعة",
+      contactUs: "تواصل معنا",
+    },
+    welcome: {
+      title: "مرحباً بك في Kenton Software",
+      subtitle: "شريكك الموثوق في بناء الأنظمة البرمجية",
+      whoWeAre: "من نحن؟",
+      whoWeAreDesc: "Kenton Software هي شركة برمجيات متخصصة في بناء تطبيقات سطح المكتب والأنظمة المتكاملة. نقدم حلولاً ذكية وآمنة لإدارة الأعمال، مصممة خصيصاً لتلبية احتياجاتك.",
+      whatWeOffer: "ماذا نقدم؟",
+      whyChooseUs: "لماذا تختارنا؟",
+      feature1: "أنظمة سطح مكتب احترافية",
+      feature2: "أمان عالي وحماية للبيانات",
+      feature3: "أداء سريع وسلس",
+      feature4: "دعم فني متخصص",
+      reason1: "أنظمة مخصصة حسب طلب العميل",
+      reason2: "دعم فني على مدار الساعة",
+      reason3: "أسعار تنافسية",
+      reason4: "تحديثات مستمرة",
+      email: "البريد",
+      whatsapp: "واتساب",
+      call: "اتصال",
+      getStarted: "ابدأ الآن",
+    },
     matrixPage: { 
       title: "نظام ماتريكس", subtitle: "الحل المتكامل لإدارة الصيدليات", 
       desc: "نظام ماتريكس هو تطبيق سطح مكتب احترافي صمم خصيصاً لإدارة الصيدليات. يغطي جميع احتياجاتك من إدارة المخزون والدواء إلى المبيعات والفواتير.", 
@@ -76,7 +100,13 @@ export const translations = {
       f5Title: "أمان عالي", f5Desc: "بياناتك محفوظة محلياً ومشفرة بالكامل.",
       f6Title: "إدارة المخزون", f6Desc: "تحكم في كميات المنتجات ونبه عند نفاذها."
     },
-    aboutPage: { title: "عن Kenton Software", desc: "نحن شركة برمجيات متخصصة في بناء تطبيقات سطح المكتب.", m1: "رسالتنا", m1Desc: "تقديم برمجيات احترافية بأسعار مناسبة.", m2: "رؤيتنا", m2Desc: "أن نكون الخيار الأول للشركات في الشرق الأوسط.", m3: "قيمنا", m3Desc: "الجودة، الشفافية، الالتزام." },
+    aboutPage: { 
+      title: "عن Kenton Software", 
+      desc: "نحن شركة برمجيات متخصصة في بناء تطبيقات سطح المكتب.", 
+      m1: "رسالتنا", m1Desc: "تقديم برمجيات احترافية بأسعار مناسبة.", 
+      m2: "رؤيتنا", m2Desc: "أن نكون الخيار الأول للشركات في الشرق الأوسط.", 
+      m3: "قيمنا", m3Desc: "الجودة، الشفافية، الالتزام." 
+    },
     requestPage: {
       title: "شراء التطبيق",
       desc: "لإتمام عملية الشراء، يرجى التواصل معنا مباشرة عبر رقم الهاتف أدناه. سعر التطبيق الواحد هو 150 فرنك رواندي.",
@@ -106,7 +136,7 @@ export const translations = {
       kumaTitle: "Kuma System", kumaDesc: "An integrated system for store management.",
     },
     features: {
-      title: "Why Choose Us?", desc: "We offer a unique software experience.", // ✅ علامة الاستفهام داخل النص
+      title: "Why Choose Us?", desc: "We offer a unique software experience.",
       f1Title: "High Security", f1Desc: "Your data is protected with the highest standards.",
       f2Title: "Fast Performance", f2Desc: "Fast apps that don't consume your device resources.",
       f3Title: "Technical Support", f3Desc: "A specialized support team to help you.",
@@ -116,7 +146,31 @@ export const translations = {
       title: "Contact Us", desc: "Have a question? Our team is ready to help.",
       phone: "Phone", location: "Location", locationValue: "Kigali, Rwanda",
     },
-    footer: { rights: "All rights reserved Kenton Software" }, // ✅ النص الإنجليزي
+    footer: { 
+      rights: "All rights reserved Kenton Software",
+      quickLinks: "Quick Links",
+      contactUs: "Contact Us",
+    },
+    welcome: {
+      title: "Welcome to Kenton Software",
+      subtitle: "Your trusted partner in software development",
+      whoWeAre: "Who We Are",
+      whoWeAreDesc: "Kenton Software is a software company specialized in building desktop applications and integrated systems. We provide smart and secure business management solutions, tailored to your needs.",
+      whatWeOffer: "What We Offer",
+      whyChooseUs: "Why Choose Us?",
+      feature1: "Professional Desktop Systems",
+      feature2: "High Security & Data Protection",
+      feature3: "Fast & Smooth Performance",
+      feature4: "Specialized Technical Support",
+      reason1: "Customized systems based on client needs",
+      reason2: "24/7 Technical support",
+      reason3: "Competitive prices",
+      reason4: "Continuous updates",
+      email: "Email",
+      whatsapp: "WhatsApp",
+      call: "Call",
+      getStarted: "Get Started",
+    },
     matrixPage: { 
       title: "mAtReX System", subtitle: "The Integrated Pharmacy Solution", 
       desc: "mAtReX is a professional desktop application designed specifically for pharmacy management. It covers all your needs from inventory to sales and invoices.", 
@@ -166,7 +220,13 @@ export const translations = {
       f5Title: "High Security", f5Desc: "Your data is stored locally and fully encrypted.",
       f6Title: "Inventory Management", f6Desc: "Control product quantities and get alerts on low stock."
     },
-    aboutPage: { title: "About Kenton Software", desc: "We are a software company specialized in building integrated desktop applications.", m1: "Our Mission", m1Desc: "Provide professional software at affordable prices.", m2: "Our Vision", m2Desc: "To be the first choice for companies in the Middle East.", m3: "Our Values", m3Desc: "Quality, transparency, commitment." },
+    aboutPage: { 
+      title: "About Kenton Software", 
+      desc: "We are a software company specialized in building integrated desktop applications.", 
+      m1: "Our Mission", m1Desc: "Provide professional software at affordable prices.", 
+      m2: "Our Vision", m2Desc: "To be the first choice for companies in the Middle East.", 
+      m3: "Our Values", m3Desc: "Quality, transparency, commitment." 
+    },
     requestPage: {
       title: "Purchase Application",
       desc: "To complete your purchase, please contact us directly via the phone number below. The price per application is 150 FRw.",
