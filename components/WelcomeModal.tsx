@@ -12,16 +12,13 @@ export default function WelcomeModal() {
   const isRtl = lang === 'ar';
   const t = translations[lang];
 
+  // ✅ إظهار النافذة في كل مرة يتم فيها فتح الموقع (بعد ثانية واحدة)
   useEffect(() => {
-    const hasSeen = localStorage.getItem('kenton_welcome_seen');
-    if (!hasSeen) {
-      const timer = setTimeout(() => setIsOpen(true), 1000);
-      return () => clearTimeout(timer);
-    }
+    const timer = setTimeout(() => setIsOpen(true), 1000);
+    return () => clearTimeout(timer);
   }, []);
 
   const handleClose = () => {
-    localStorage.setItem('kenton_welcome_seen', 'true');
     setIsOpen(false);
   };
 

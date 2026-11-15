@@ -25,9 +25,7 @@ export default function Footer() {
               <Logo size={40} />
               <span className="text-xl font-black text-white">Kenton Software</span>
             </div>
-            <p className="text-gray-400 text-sm">
-              {isRtl ? "نظام إدارة متجرك بالكامل." : "Complete store management system."}
-            </p>
+            {/* ✅ تم حذف النص "نظام إدارة متجرك بالكامل" من هنا */}
           </div>
 
           <div>
