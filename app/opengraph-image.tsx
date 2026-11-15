@@ -32,6 +32,7 @@ export default async function Image() {
             marginBottom: 40,
           }}
         >
+          {/* الشعار */}
           <svg
             width="200"
             height="200"
@@ -56,9 +57,13 @@ export default async function Image() {
             />
           </svg>
         </div>
-        <div style={{ fontSize: 72, fontWeight: 'bold' }}>Kenton Software</div>
-        <div style={{ fontSize: 32, marginTop: 20, opacity: 0.9 }}>
-          حلول برمجية متكاملة
+        
+        {/* النص الإنجليزي فقط (لأن الخط العربي غير مدعوم في next/og) */}
+        <div style={{ fontSize: 72, fontWeight: 'bold', textAlign: 'center' }}>
+          Kenton Software
+        </div>
+        <div style={{ fontSize: 32, marginTop: 20, opacity: 0.9, textAlign: 'center' }}>
+          Software Solutions
         </div>
       </div>
     ),
