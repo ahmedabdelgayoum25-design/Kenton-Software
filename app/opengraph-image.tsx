@@ -1,6 +1,5 @@
 import { ImageResponse } from 'next/og'
 
-export const runtime = 'edge'
 export const alt = 'Kenton Software'
 export const size = {
   width: 1200,
@@ -33,7 +32,6 @@ export default async function Image() {
             marginBottom: 40,
           }}
         >
-          {/* الشعار */}
           <svg
             width="200"
             height="200"

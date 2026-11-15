@@ -14,7 +14,6 @@ export const metadata: Metadata = {
   keywords: ["Kenton Software", "برمجة", "تطبيقات", "أنظمة", "إدارة متاجر", "كوما", "ماتريكس", "زيبرا"],
   authors: [{ name: "Kenton Software" }],
   creator: "Kenton Software",
-  // ✅ إعدادات الأيقونة (Favicon) لجميع الأجهزة
   icons: {
     icon: [
       { url: "/icon.svg", type: "image/svg+xml" },
