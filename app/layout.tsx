@@ -9,11 +9,12 @@ import DirectionProvider from "@/components/DirectionProvider";
 const cairo = Cairo({ subsets: ["arabic", "latin"] });
 
 export const metadata: Metadata = {
-  title: "Kenton Software | حلول برمجية متكاملة",
-  description: "Kenton Software تقدم تطبيقات سطح مكتب وأنظمة ويب احترافية، سريعة، وآمنة.",
-  keywords: ["Kenton Software", "برمجة", "تطبيقات", "أنظمة", "إدارة متاجر", "كوما", "ماتريكس", "زيبرا"],
+  title: "Kenton Software | Integrated Software Solutions",
+  description: "Kenton Software provides professional, fast, and secure desktop applications.",
+  keywords: ["Kenton Software", "Software", "Desktop Apps", "Management Systems"],
   authors: [{ name: "Kenton Software" }],
   creator: "Kenton Software",
+  // ✅ إعدادات الأيقونة
   icons: {
     icon: [
       { url: "/icon.svg", type: "image/svg+xml" },
@@ -21,17 +22,18 @@ export const metadata: Metadata = {
     apple: "/icon.svg",
     shortcut: "/icon.svg",
   },
+  manifest: "/manifest.webmanifest",
   openGraph: {
-    title: "Kenton Software | حلول برمجية متكاملة",
-    description: "Kenton Software تقدم تطبيقات سطح مكتب وأنظمة ويب احترافية.",
+    title: "Kenton Software | Integrated Software Solutions",
+    description: "Kenton Software provides professional, fast, and secure desktop applications.",
     siteName: "Kenton Software",
-    locale: "ar_AR",
+    locale: "en_US",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
     title: "Kenton Software",
-    description: "حلول برمجية متكاملة",
+    description: "Integrated Software Solutions",
   },
 };
 
@@ -41,7 +43,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="ar" dir="rtl">
+    // ✅ تغيير اللغة الافتراضية إلى الإنجليزية
+    <html lang="en" dir="ltr">
       <body className={`${cairo.className} bg-background text-textMain`}>
         <DirectionProvider>
           <WelcomeModal />
