@@ -29,6 +29,11 @@ export const metadata: Metadata = {
     locale: "ar_AR",
     type: "website",
   },
+  twitter: {
+    card: "summary_large_image",
+    title: "Kenton Software",
+    description: "حلول برمجية متكاملة",
+  },
 };
 
 export default function RootLayout({
