@@ -14,13 +14,13 @@ export const metadata: Metadata = {
   keywords: ["Kenton Software", "Software", "Desktop Apps", "Management Systems"],
   authors: [{ name: "Kenton Software" }],
   creator: "Kenton Software",
-  // ✅ إعدادات الأيقونة
+  // ✅ استخدام الاسم الجديد للأيقونة لإجبار المتصفح على تحديثها
   icons: {
     icon: [
-      { url: "/icon.svg", type: "image/svg+xml" },
+      { url: "/kenton-icon.svg", type: "image/svg+xml" },
     ],
-    apple: "/icon.svg",
-    shortcut: "/icon.svg",
+    apple: "/kenton-icon.svg",
+    shortcut: "/kenton-icon.svg",
   },
   manifest: "/manifest.webmanifest",
   openGraph: {
@@ -43,7 +43,6 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    // ✅ تغيير اللغة الافتراضية إلى الإنجليزية
     <html lang="en" dir="ltr">
       <body className={`${cairo.className} bg-background text-textMain`}>
         <DirectionProvider>
