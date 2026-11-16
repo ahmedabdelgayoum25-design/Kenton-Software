@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { useLangStore } from "@/store/langStore";
 import { translations } from "@/data/translations";
 import { useEffect, useState } from "react";
-import { Target, Eye, CheckCircle2 } from "lucide-react";
+import { Target, Eye } from "lucide-react";
 
 export default function AboutPage() {
   const [mounted, setMounted] = useState(false);

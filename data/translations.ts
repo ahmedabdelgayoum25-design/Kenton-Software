@@ -6,6 +6,11 @@ export const translations = {
       about: "من نحن",
       contact: "اتصل بنا",
     },
+    welcome: {
+      title: "مرحباً بك في Kenton Software",
+      desc: "نحن نصنع أنظمة برمجية متكاملة تسهل إدارة أعمالك. اكتشف منتجاتنا المصممة خصيصاً لتلبية احتياجاتك.",
+      button: "استكشف منتجاتنا الآن",
+    },
     products: {
       title: "منتجاتنا وخدماتنا",
       subtitle: "تصفح مجموعتنا من الأنظمة الاحترافية.",
@@ -134,6 +139,11 @@ export const translations = {
       products: "Products",
       about: "About Us",
       contact: "Contact",
+    },
+    welcome: {
+      title: "Welcome to Kenton Software",
+      desc: "We build integrated software systems that simplify your business management. Discover our products designed to meet your needs.",
+      button: "Explore Our Products Now",
     },
     products: {
       title: "Our Products & Services",
