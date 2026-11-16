@@ -1,20 +1,19 @@
-import { create } from 'zustand';
-import { persist } from 'zustand/middleware';
+import { create } from "zustand";
+import { persist } from "zustand/middleware";
 
-interface LangStore {
-  lang: 'ar' | 'en';
-  setLang: (lang: 'ar' | 'en') => void;
+interface LangState {
+  lang: "ar" | "en";
+  setLang: (lang: "ar" | "en") => void;
 }
 
-export const useLangStore = create<LangStore>()(
+export const useLangStore = create<LangState>()(
   persist(
     (set) => ({
-      // ✅ اللغة الافتراضية الآن هي الإنجليزية
-      lang: 'en',
+      lang: "en", // اللغة الافتراضية
       setLang: (lang) => set({ lang }),
     }),
     {
-      name: 'kenton-lang-storage',
+      name: "kenton-lang-storage",
     }
   )
 );

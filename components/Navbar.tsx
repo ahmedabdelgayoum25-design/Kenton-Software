@@ -1,50 +1,69 @@
 "use client";
 import Link from "next/link";
-import { useState, useEffect } from "react";
 import { useLangStore } from "@/store/langStore";
 import { translations } from "@/data/translations";
-import { Globe } from "lucide-react";
-import Logo from "./Logo";
+import { Globe, Menu, X } from "lucide-react";
+import { useState } from "react";
 
-export default function Navbar() {
-  const [mounted, setMounted] = useState(false);
+export function Navbar() {
   const { lang, setLang } = useLangStore();
-  useEffect(() => { setMounted(true); }, []);
-  if (!mounted) return null;
-
   const t = translations[lang];
-  const isRtl = lang === 'ar';
+  const [isOpen, setIsOpen] = useState(false);
 
   const toggleLang = () => {
-    setLang(lang === 'ar' ? 'en' : 'ar');
+    setLang(lang === "ar" ? "en" : "ar");
   };
 
+  const navLinks = [
+    { href: "/", label: t.nav.home },
+    { href: "/products", label: t.nav.products },
+    { href: "/about", label: t.nav.about },
+    { href: "/#contact", label: t.nav.contact },
+  ];
+
   return (
-    <nav className="fixed top-0 w-full z-50 bg-black/80 backdrop-blur-md border-b border-white/10">
+    <nav className="fixed top-0 w-full bg-background/80 backdrop-blur-md border-b border-white/10 z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
-          <Link href="/" className="flex items-center gap-3 group">
-            <div className="group-hover:scale-110 transition-transform">
-              <Logo size={40} />
-            </div>
-            <span className="text-xl font-black text-white hidden sm:block">
-              Kenton Software
-            </span>
+          <Link href="/" className="flex items-center gap-2">
+            <span className="text-2xl font-black text-primary">Kenton</span>
+            <span className="text-xl font-bold text-white">Software</span>
           </Link>
 
+          {/* Desktop Nav */}
           <div className="hidden md:flex items-center gap-8">
-            <Link href="/" className="text-gray-300 hover:text-primary transition-colors font-medium">{t.nav.home}</Link>
-            <Link href="/#products" className="text-gray-300 hover:text-primary transition-colors font-medium">{t.nav.products}</Link>
-            <Link href="/about" className="text-gray-300 hover:text-primary transition-colors font-medium">{t.nav.about}</Link>
-            <Link href="/#contact" className="text-gray-300 hover:text-primary transition-colors font-medium">{t.nav.contact}</Link>
+            {navLinks.map((link) => (
+              <Link key={link.href} href={link.href} className="text-gray-300 hover:text-primary transition-colors font-medium">
+                {link.label}
+              </Link>
+            ))}
+            <button onClick={toggleLang} className="flex items-center gap-2 bg-surface border border-white/10 px-4 py-2 rounded-lg text-white hover:border-primary transition-colors">
+              <Globe size={18} />
+              {lang === "ar" ? "English" : "عربي"}
+            </button>
           </div>
 
-          <button onClick={toggleLang} className="flex items-center gap-2 px-4 py-2 rounded-lg bg-white/5 hover:bg-white/10 transition-colors text-sm font-bold text-white">
-            <Globe size={18} />
-            {t.nav.langBtn}
+          {/* Mobile Menu Button */}
+          <button className="md:hidden text-white" onClick={() => setIsOpen(!isOpen)}>
+            {isOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
         </div>
       </div>
+
+      {/* Mobile Nav */}
+      {isOpen && (
+        <div className="md:hidden bg-surface border-b border-white/10 px-4 pt-2 pb-4 space-y-2">
+          {navLinks.map((link) => (
+            <Link key={link.href} href={link.href} className="block text-gray-300 hover:text-primary py-2 font-medium" onClick={() => setIsOpen(false)}>
+              {link.label}
+            </Link>
+          ))}
+          <button onClick={toggleLang} className="flex items-center gap-2 bg-background w-full px-4 py-2 rounded-lg text-white mt-2">
+            <Globe size={18} />
+            {lang === "ar" ? "English" : "عربي"}
+          </button>
+        </div>
+      )}
     </nav>
   );
 }
