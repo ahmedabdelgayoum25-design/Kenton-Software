@@ -19,6 +19,8 @@ export const translations = {
       exploreServices: "استكشف خدماتنا",
     },
     features: {
+      title: "لماذا تختار Kenton Software؟",
+      desc: "نحن نقدم لك الأفضل دائماً.",
       f1Title: "أمان عالي",
       f1Desc: "بياناتك محمية بأعلى معايير التشفير والأمان.",
       f2Title: "سرعة فائقة",
@@ -221,6 +223,8 @@ export const translations = {
       exploreServices: "Explore Services",
     },
     features: {
+      title: "Why Choose Kenton Software?",
+      desc: "We always provide the best for you.",
       f1Title: "High Security",
       f1Desc: "Your data is protected with top encryption standards.",
       f2Title: "High Speed",

@@ -12,7 +12,7 @@ export function ContactSection() {
     <section id="contact" className="py-20 bg-black">
       <div className="max-w-4xl mx-auto px-4 text-center">
         <h2 className="text-3xl font-bold text-textMain mb-4">{t.contact.title}</h2>
-        {/* ✅ تم استخدام subtitle بدلاً من desc */}
+        {/* ✅ استخدام subtitle بدلاً من desc */}
         <p className="text-textMuted mb-12">{t.contact.subtitle}</p>
 
         <div className="flex flex-col md:flex-row justify-center gap-6">
