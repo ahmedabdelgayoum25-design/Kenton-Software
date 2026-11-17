@@ -26,14 +26,14 @@ export function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
           <div className="flex items-center gap-4">
-            {/* ✅ زر الرجوع */}
             <button 
               onClick={() => router.back()} 
               className="p-2 rounded-lg bg-surface border border-white/10 text-textMuted hover:text-primary transition-colors"
               title={lang === 'ar' ? 'رجوع' : 'Back'}
             >
-              <ArrowLeft size={20} className={lang === 'ar' ? 'rotate-180' : ''} />
+              <ArrowLeft size={20} className={lang === 'ar' ? '' : 'rotate-180'} />
             </button>
+            {/* ✅ اسم الموقع ثابت باللغة الإنجليزية */}
             <Link href="/" className="flex items-center gap-2">
               <span className="text-2xl font-black text-primary">Kenton</span>
               <span className="text-xl font-bold text-textMain">Software</span>
@@ -43,7 +43,6 @@ export function Navbar() {
             {navLinks.map((link) => (
               <Link key={link.href} href={link.href} className="text-textMuted hover:text-primary transition-colors font-medium">{link.label}</Link>
             ))}
-            {/* ✅ زر اللغة */}
             <button onClick={toggleLang} className="flex items-center gap-2 bg-surface border border-white/10 px-4 py-2 rounded-lg text-textMain hover:border-primary transition-colors">
               <Globe size={18} /> {lang === "ar" ? "English" : "Arabic"}
             </button>

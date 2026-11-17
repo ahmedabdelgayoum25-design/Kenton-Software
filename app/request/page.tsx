@@ -5,7 +5,7 @@ import { useState, useEffect } from "react";
 import { useLangStore } from "@/store/langStore";
 import { translations } from "@/data/translations";
 import { useRouter } from "next/navigation";
-import { BackButton } from "@/components/BackButton"; // ✅
+import { BackButton } from "@/components/BackButton";
 
 export default function RequestPage() {
   const [mounted, setMounted] = useState(false);
@@ -28,24 +28,16 @@ export default function RequestPage() {
   return (
     <main className="min-h-screen bg-background text-textMain pt-20">
       <div className="max-w-2xl mx-auto px-4 pt-8">
-        <BackButton /> {/* ✅ زر الرجوع */}
-
+        <BackButton />
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
           <h1 className="text-3xl font-bold text-primary mb-4">{t.requestPage.title}</h1>
           <p className="text-textMuted mb-8 leading-relaxed">{t.requestPage.subtitle}</p>
-
           {status === "success" && (
-            <div className="bg-green-500/10 border border-green-500/30 text-green-500 p-4 rounded-xl mb-6">
-              {t.requestPage.success}
-            </div>
+            <div className="bg-green-500/10 border border-green-500/30 text-green-500 p-4 rounded-xl mb-6">{t.requestPage.success}</div>
           )}
-
           {status === "error" && (
-            <div className="bg-red-500/10 border border-red-500/30 text-red-500 p-4 rounded-xl mb-6">
-              {t.requestPage.error}
-            </div>
+            <div className="bg-red-500/10 border border-red-500/30 text-red-500 p-4 rounded-xl mb-6">{t.requestPage.error}</div>
           )}
-
           <form onSubmit={handleSubmit} className="space-y-4">
             <div>
               <label className="block text-sm font-medium mb-1 text-textMain">{t.requestPage.name}</label>

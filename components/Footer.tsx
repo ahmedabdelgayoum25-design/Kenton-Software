@@ -35,7 +35,7 @@ export function Footer() {
             <ul className="space-y-3">
               <li className="flex items-center gap-2 text-textMuted">
                 <Mail size={16} />
-                {/* ✅ توجيه البريد الإلكتروني */}
+                {/* ✅ زر البريد الإلكتروني يوجه مباشرة */}
                 <a href={`mailto:${t.footer.email}`} className="hover:text-primary transition-colors">{t.footer.email}</a>
               </li>
               <li className="flex items-center gap-2 text-textMuted">

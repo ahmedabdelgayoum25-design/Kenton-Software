@@ -4,7 +4,7 @@ import { useLangStore } from "@/store/langStore";
 import { translations } from "@/data/translations";
 import { useEffect, useState } from "react";
 import { Target, Eye } from "lucide-react";
-import { BackButton } from "@/components/BackButton"; // ✅
+import { BackButton } from "@/components/BackButton";
 
 export default function AboutPage() {
   const [mounted, setMounted] = useState(false);
@@ -17,15 +17,13 @@ export default function AboutPage() {
   return (
     <main className="min-h-screen bg-background text-textMain pt-20">
       <div className="max-w-4xl mx-auto px-4 pt-8">
-        <BackButton /> {/* ✅ زر الرجوع */}
-        
+        <BackButton />
         <section className="py-20 text-center">
           <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }}>
             <h1 className="text-5xl font-black mb-6">{t.aboutPage.title}</h1>
             <p className="text-xl text-textMuted leading-relaxed">{t.aboutPage.desc}</p>
           </motion.div>
         </section>
-
         <section className="py-20 bg-surface rounded-2xl">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 p-8">
             <div className="bg-background p-8 rounded-2xl border border-white/10">

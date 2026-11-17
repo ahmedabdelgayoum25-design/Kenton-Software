@@ -5,7 +5,7 @@ import Link from "next/link";
 import { useLangStore } from "@/store/langStore";
 import { translations } from "@/data/translations";
 import { useEffect, useState } from "react";
-import { BackButton } from "@/components/BackButton"; // ✅
+import { BackButton } from "@/components/BackButton";
 
 export default function ProductsPage() {
   const [mounted, setMounted] = useState(false);
@@ -25,13 +25,11 @@ export default function ProductsPage() {
   return (
     <main className="min-h-screen bg-background text-textMain pt-20">
       <div className="max-w-7xl mx-auto px-4 pt-8">
-        <BackButton /> {/* ✅ زر الرجوع */}
-        
+        <BackButton />
         <div className="text-center mb-16">
           <h1 className="text-5xl font-black mb-4">{t.products.title}</h1>
           <p className="text-xl text-textMuted">{t.products.subtitle}</p>
         </div>
-        
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 pb-20">
           {products.map((product, index) => (
             <motion.div key={product.id} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: index * 0.1 }} className="card group">
