@@ -5,7 +5,7 @@ import { Palette } from "lucide-react";
 const themes: { id: Theme; name: string; color: string }[] = [
   { id: "dark", name: "داكن", color: "bg-black" },
   { id: "light", name: "فاتح", color: "bg-white" },
-  { id: "blue", name: "أزرق", color: "bg-blue-600" },
+  { id: "royal", name: "أزرق", color: "bg-blue-600" }, // ✅ تم تغيير blue إلى royal
   { id: "emerald", name: "أخضر", color: "bg-emerald-500" },
 ];
 

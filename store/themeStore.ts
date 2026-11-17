@@ -1,7 +1,7 @@
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
 
-export type Theme = "dark" | "light" | "royal" | "emerald";
+export type Theme = "dark" | "light" | "blue" | "emerald"; // ✅ blue
 
 interface ThemeState {
   theme: Theme;
@@ -11,7 +11,7 @@ interface ThemeState {
 export const useThemeStore = create<ThemeState>()(
   persist(
     (set) => ({
-      theme: "dark",
+      theme: "emerald", // ✅ الثيم الافتراضي (الزمردي)
       setTheme: (theme) => set({ theme }),
     }),
     {
