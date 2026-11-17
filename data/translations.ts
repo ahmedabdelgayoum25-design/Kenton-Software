@@ -13,6 +13,7 @@ export const translations = {
       button: "أنا جاهز للدخول للموقع",
     },
     home: {
+      badge: "حلول برمجية متكاملة",
       heroTitle: "نبني أنظمة ذكية لعملك",
       heroSubtitle: "تقدم Kenton Software تطبيقات سطح مكتب احترافية وخدمات تقنية متكاملة.",
       exploreProducts: "استكشف منتجاتنا",
@@ -217,6 +218,7 @@ export const translations = {
       button: "I'm Ready to Enter",
     },
     home: {
+      badge: "Integrated Software Solutions",
       heroTitle: "We Build Smart Systems for Your Business",
       heroSubtitle: "Kenton Software provides professional desktop applications and integrated tech services.",
       exploreProducts: "Explore Products",
