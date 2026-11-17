@@ -4,14 +4,18 @@ import { useLangStore } from "@/store/langStore";
 import { translations } from "@/data/translations";
 import { Globe, Menu, X, ArrowLeft } from "lucide-react";
 import { useState } from "react";
-import { useRouter } from "next/navigation";
+import { useRouter, usePathname } from "next/navigation";
 
 export function Navbar() {
   const { lang, setLang } = useLangStore();
   const t = translations[lang];
   const [isOpen, setIsOpen] = useState(false);
   const router = useRouter();
+  const pathname = usePathname();
   const toggleLang = () => setLang(lang === "ar" ? "en" : "ar");
+
+  // ✅ إخفاء زر الرجوع في الصفحة الرئيسية
+  const isHome = pathname === "/";
 
   const navLinks = [
     { href: "/", label: t.nav.home },
@@ -26,14 +30,17 @@ export function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
           <div className="flex items-center gap-4">
-            <button 
-              onClick={() => router.back()} 
-              className="p-2 rounded-lg bg-surface border border-white/10 text-textMuted hover:text-primary transition-colors"
-              title={lang === 'ar' ? 'رجوع' : 'Back'}
-            >
-              <ArrowLeft size={20} className={lang === 'ar' ? '' : 'rotate-180'} />
-            </button>
-            {/* ✅ اسم الموقع ثابت باللغة الإنجليزية */}
+            {/* ✅ زر الرجوع يظهر فقط في الصفحات الداخلية */}
+            {!isHome && (
+              <button 
+                onClick={() => router.back()} 
+                className="p-2 rounded-lg bg-surface border border-white/10 text-textMuted hover:text-primary transition-colors"
+                title={lang === 'ar' ? 'رجوع' : 'Back'}
+              >
+                <ArrowLeft size={20} className={lang === 'ar' ? '' : 'rotate-180'} />
+              </button>
+            )}
+            {/* ✅ اسم الموقع ثابت: Kenton Software */}
             <Link href="/" className="flex items-center gap-2">
               <span className="text-2xl font-black text-primary">Kenton</span>
               <span className="text-xl font-bold text-textMain">Software</span>

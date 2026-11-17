@@ -9,8 +9,11 @@ export const translations = {
     },
     welcome: {
       title: "مرحباً بك في Kenton Software",
-      desc: "نحن نصنع أنظمة برمجية متكاملة تسهل إدارة أعمالك، ونقدم خدمات تقنية احترافية (تثبيت ويندوز، أوفيس، وصيانة).",
+      desc: "نحن نصنع أنظمة برمجية متكاملة تسهل إدارة أعمالك، ونقدم خدمات تقنية احترافية.",
       button: "أنا جاهز للدخول للموقع",
+      feature1: "أنظمة إدارة عيادات ومتاجر ومدارس وصيدليات",
+      feature2: "تثبيت وتنشيط Windows و Office",
+      feature3: "صيانة أجهزة ودعم فني 24/7",
     },
     home: {
       badge: "حلول برمجية متكاملة",
@@ -222,8 +225,11 @@ export const translations = {
     },
     welcome: {
       title: "Welcome to Kenton Software",
-      desc: "We build integrated software systems that simplify your business and provide professional tech services (Windows, Office, Maintenance).",
+      desc: "We build integrated software systems that simplify your business and provide professional tech services.",
       button: "I'm Ready to Enter",
+      feature1: "Clinic, Store, School & Pharmacy Management Systems",
+      feature2: "Windows & Office Installation & Activation",
+      feature3: "PC Maintenance & 24/7 Technical Support",
     },
     home: {
       badge: "Integrated Software Solutions",

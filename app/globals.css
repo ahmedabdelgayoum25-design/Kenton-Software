@@ -4,7 +4,7 @@
 @tailwind components;
 @tailwind utilities;
 
-/* ✅ الثيم الداكن الكلاسيكي (Dark Classic) */
+/* ✅ الثيم الداكن الكلاسيكي */
 :root {
   --background: #0a0a0a;
   --surface: #171717;

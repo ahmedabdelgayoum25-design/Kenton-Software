@@ -6,7 +6,6 @@ import { HeroSection } from "@/components/HeroSection";
 import { ProductsSection } from "@/components/ProductsSection";
 import { FeaturesSection } from "@/components/FeaturesSection";
 import { Footer } from "@/components/Footer";
-import { BackButton } from "@/components/BackButton";
 
 export default function Home() {
   const [mounted, setMounted] = useState(false);
@@ -18,9 +17,6 @@ export default function Home() {
       <WelcomeModal />
       <Navbar />
       <div className="pt-20">
-        <div className="max-w-7xl mx-auto px-4 pt-8">
-          <BackButton />
-        </div>
         <HeroSection />
         <ProductsSection />
         <FeaturesSection />
