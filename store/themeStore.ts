@@ -1,7 +1,8 @@
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
 
-export type Theme = "dark" | "light" | "blue" | "emerald"; // ✅ blue
+// ✅ تعريف نوع الثيم (يجب أن يطابق الأسماء المستخدمة في ThemeSwitcher)
+export type Theme = "dark" | "light" | "royal" | "emerald";
 
 interface ThemeState {
   theme: Theme;

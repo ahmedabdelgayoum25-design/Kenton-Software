@@ -2,10 +2,11 @@
 import { useThemeStore, Theme } from "@/store/themeStore";
 import { Palette } from "lucide-react";
 
+// ✅ قائمة الثيمات (يجب أن تطابق الأسماء في themeStore)
 const themes: { id: Theme; name: string; color: string }[] = [
   { id: "dark", name: "داكن", color: "bg-black" },
   { id: "light", name: "فاتح", color: "bg-white" },
-  { id: "royal", name: "أزرق", color: "bg-blue-600" }, // ✅ تم تغيير blue إلى royal
+  { id: "royal", name: "أزرق", color: "bg-blue-600" }, // ✅ royal
   { id: "emerald", name: "أخضر", color: "bg-emerald-500" },
 ];
 
