@@ -18,6 +18,16 @@ export const translations = {
       exploreProducts: "استكشف منتجاتنا",
       exploreServices: "استكشف خدماتنا",
     },
+    features: {
+      f1Title: "أمان عالي",
+      f1Desc: "بياناتك محمية بأعلى معايير التشفير والأمان.",
+      f2Title: "سرعة فائقة",
+      f2Desc: "أداء سريع وسلس دون أي تأخير.",
+      f3Title: "دعم فني 24/7",
+      f3Desc: "فريقنا جاهز لمساعدتك في أي وقت.",
+      f4Title: "تطوير مخصص",
+      f4Desc: "حلول برمجية مصممة خصيصاً لتناسب احتياجاتك.",
+    },
     products: {
       title: "منتجاتنا وخدماتنا",
       subtitle: "تصفح مجموعتنا من الأنظمة الاحترافية.",
@@ -209,6 +219,16 @@ export const translations = {
       heroSubtitle: "Kenton Software provides professional desktop applications and integrated tech services.",
       exploreProducts: "Explore Products",
       exploreServices: "Explore Services",
+    },
+    features: {
+      f1Title: "High Security",
+      f1Desc: "Your data is protected with top encryption standards.",
+      f2Title: "High Speed",
+      f2Desc: "Fast and smooth performance without any lag.",
+      f3Title: "24/7 Support",
+      f3Desc: "Our team is ready to help you anytime.",
+      f4Title: "Custom Development",
+      f4Desc: "Software solutions tailored to your needs.",
     },
     products: {
       title: "Our Products & Services",
