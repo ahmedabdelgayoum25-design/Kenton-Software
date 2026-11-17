@@ -178,6 +178,19 @@ export const translations = {
       message: "الرسالة",
       send: "إرسال",
     },
+    // ✅ إضافة requestPage لحل الخطأ
+    requestPage: {
+      title: "طلب نظام",
+      subtitle: "يرجى ملء النموذج أدناه لطلب النظام.",
+      backHome: "العودة للرئيسية",
+      name: "الاسم الكامل",
+      email: "البريد الإلكتروني",
+      phone: "رقم الهاتف",
+      message: "رسالتك (اختياري)",
+      send: "إرسال الطلب",
+      success: "تم إرسال طلبك بنجاح! سنتواصل معك قريباً.",
+      error: "حدث خطأ. يرجى المحاولة مرة أخرى.",
+    },
   },
   en: {
     nav: {
@@ -357,6 +370,19 @@ export const translations = {
       name: "Name",
       message: "Message",
       send: "Send",
+    },
+    // ✅ إضافة requestPage لحل الخطأ
+    requestPage: {
+      title: "Request System",
+      subtitle: "Please fill out the form below to request the system.",
+      backHome: "Back to Home",
+      name: "Full Name",
+      email: "Email",
+      phone: "Phone Number",
+      message: "Your Message (Optional)",
+      send: "Send Request",
+      success: "Your request has been sent successfully! We will contact you soon.",
+      error: "An error occurred. Please try again.",
     },
   },
 };
