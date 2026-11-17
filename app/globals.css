@@ -4,59 +4,19 @@
 @tailwind components;
 @tailwind utilities;
 
-/* ===== الثيم الداكن (الافتراضي) ===== */
-:root, [data-theme="dark"] {
-  --background: #0a0a0a;
-  --surface: #171717;
-  --surface-light: #262626;
-  --primary: #10b981;
-  --primary-hover: #059669;
-  --text-main: #ffffff;
-  --text-muted: #a3a3a3;
+/* ✅ الثيم البنفسجي (الوحيد) */
+:root {
+  --background: #1e1b4b;
+  --surface: #2e1065;
+  --surface-light: #4c1d95;
+  --primary: #a78bfa;
+  --primary-hover: #8b5cf6;
+  --text-main: #f5f3ff;
+  --text-muted: #c4b5fd;
   --border: rgba(255, 255, 255, 0.1);
-  --glow: 0 0 20px rgba(16, 185, 129, 0.3);
+  --glow: 0 0 20px rgba(167, 139, 250, 0.3);
 }
 
-/* ===== الثيم الفاتح ===== */
-[data-theme="light"] {
-  --background: #f8fafc;
-  --surface: #ffffff;
-  --surface-light: #f1f5f9;
-  --primary: #2563eb;
-  --primary-hover: #1d4ed8;
-  --text-main: #0f172a;
-  --text-muted: #64748b;
-  --border: rgba(0, 0, 0, 0.1);
-  --glow: 0 0 20px rgba(37, 99, 235, 0.2);
-}
-
-/* ===== الثيم الأزرق الملكي ===== */
-[data-theme="royal"] {
-  --background: #0f172a;
-  --surface: #1e293b;
-  --surface-light: #334155;
-  --primary: #38bdf8;
-  --primary-hover: #0ea5e9;
-  --text-main: #f8fafc;
-  --text-muted: #94a3b8;
-  --border: rgba(255, 255, 255, 0.1);
-  --glow: 0 0 20px rgba(56, 189, 248, 0.3);
-}
-
-/* ===== الثيم الزمردي ===== */
-[data-theme="emerald"] {
-  --background: #022c22;
-  --surface: #064e3b;
-  --surface-light: #065f46;
-  --primary: #34d399;
-  --primary-hover: #10b981;
-  --text-main: #ecfdf5;
-  --text-muted: #6ee7b7;
-  --border: rgba(255, 255, 255, 0.1);
-  --glow: 0 0 20px rgba(52, 211, 153, 0.3);
-}
-
-/* ===== تطبيق المتغيرات على العناصر ===== */
 body {
   background-color: var(--background);
   color: var(--text-main);
@@ -68,7 +28,7 @@ html[dir="rtl"] body {
   font-family: 'Cairo', sans-serif;
 }
 
-/* ===== أزرار احترافية ===== */
+/* ===== أزرار ===== */
 .btn-primary {
   display: inline-flex;
   align-items: center;
@@ -106,7 +66,7 @@ html[dir="rtl"] body {
 }
 
 .btn-secondary:hover {
-  background-color: rgba(52, 211, 153, 0.1);
+  background-color: rgba(167, 139, 250, 0.1);
 }
 
 .btn-whatsapp {

@@ -1,10 +1,11 @@
 "use client";
 import { motion } from "framer-motion";
 import { Stethoscope, BookOpen, Store, ArrowRight } from "lucide-react";
+import Link from "next/link";
 import { useLangStore } from "@/store/langStore";
 import { translations } from "@/data/translations";
 import { useEffect, useState } from "react";
-import Link from "next/link";
+import { BackButton } from "@/components/BackButton"; // ✅
 
 export default function ProductsPage() {
   const [mounted, setMounted] = useState(false);
@@ -23,12 +24,15 @@ export default function ProductsPage() {
 
   return (
     <main className="min-h-screen bg-background text-textMain pt-20">
-      <section className="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+      <div className="max-w-7xl mx-auto px-4 pt-8">
+        <BackButton /> {/* ✅ زر الرجوع */}
+        
         <div className="text-center mb-16">
           <h1 className="text-5xl font-black mb-4">{t.products.title}</h1>
           <p className="text-xl text-textMuted">{t.products.subtitle}</p>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 pb-20">
           {products.map((product, index) => (
             <motion.div key={product.id} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: index * 0.1 }} className="card group">
               <div className={`w-16 h-16 rounded-xl ${product.bg} ${product.color} flex items-center justify-center mb-6 group-hover:scale-110 transition-transform`}>{product.icon}</div>
@@ -38,7 +42,7 @@ export default function ProductsPage() {
             </motion.div>
           ))}
         </div>
-      </section>
+      </div>
     </main>
   );
 }

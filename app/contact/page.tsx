@@ -4,6 +4,7 @@ import { Mail, Phone, MapPin, Send } from "lucide-react";
 import { useLangStore } from "@/store/langStore";
 import { translations } from "@/data/translations";
 import { useEffect, useState } from "react";
+import { BackButton } from "@/components/BackButton"; // ✅
 
 export default function ContactPage() {
   const [mounted, setMounted] = useState(false);
@@ -17,7 +18,9 @@ export default function ContactPage() {
 
   return (
     <main className="min-h-screen bg-background text-textMain pt-20">
-      <section className="py-20 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto">
+      <div className="max-w-4xl mx-auto px-4 pt-8">
+        <BackButton /> {/* ✅ زر الرجوع */}
+
         <div className="text-center mb-16">
           <h1 className="text-5xl font-black mb-4">{t.contact.title}</h1>
           <p className="text-xl text-textMuted">{t.contact.subtitle}</p>
@@ -41,13 +44,13 @@ export default function ContactPage() {
           </motion.div>
         </div>
 
-        <div className="text-center">
+        <div className="text-center pb-20">
           <a href={whatsappLink} target="_blank" rel="noopener noreferrer" className="btn-whatsapp inline-flex">
             <Send size={20} />
             {lang === 'ar' ? "تواصل عبر الواتساب" : "Contact via WhatsApp"}
           </a>
         </div>
-      </section>
+      </div>
     </main>
   );
 }
