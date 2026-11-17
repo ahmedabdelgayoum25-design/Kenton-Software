@@ -178,7 +178,6 @@ export const translations = {
       message: "الرسالة",
       send: "إرسال",
     },
-    // ✅ requestPage
     requestPage: {
       title: "طلب نظام",
       subtitle: "يرجى ملء النموذج أدناه لطلب النظام.",
@@ -371,7 +370,6 @@ export const translations = {
       message: "Message",
       send: "Send",
     },
-    // ✅ requestPage
     requestPage: {
       title: "Request System",
       subtitle: "Please fill out the form below to request the system.",
