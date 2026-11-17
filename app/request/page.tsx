@@ -1,73 +1,103 @@
 "use client";
-import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { ArrowLeft, Phone, MessageCircle, DollarSign } from "lucide-react";
+import { ArrowLeft, Send } from "lucide-react";
 import Link from "next/link";
+import { useState, useEffect } from "react";
 import { useLangStore } from "@/store/langStore";
 import { translations } from "@/data/translations";
+import { useRouter } from "next/navigation";
 
 export default function RequestPage() {
   const [mounted, setMounted] = useState(false);
   const { lang } = useLangStore();
+  const [formData, setFormData] = useState({ name: "", email: "", phone: "", message: "" });
+  const [status, setStatus] = useState<"idle" | "success" | "error">("idle");
+  const router = useRouter();
+
   useEffect(() => { setMounted(true); }, []);
   if (!mounted) return null;
 
   const t = translations[lang];
-  const phoneNumber = "+250796581584"; // الرقم بدون مسافات لاستخدامه في الروابط
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    // هنا يمكنك إضافة منطق إرسال البيانات (مثلاً إلى API أو بريد إلكتروني)
+    // حالياً سنحاكي النجاح
+    setStatus("success");
+    setTimeout(() => {
+      router.push("/");
+    }, 3000);
+  };
 
   return (
     <main className="min-h-screen bg-background text-textMain pt-20">
       <section className="py-20 px-4 max-w-2xl mx-auto">
-        <Link href="/" className="text-gray-400 hover:text-primary flex items-center gap-2 transition mb-8">
+        <Link href="/" className="text-textMuted hover:text-primary flex items-center gap-2 transition mb-8">
           <ArrowLeft size={18} className={lang === 'ar' ? 'rotate-180' : ''} /> {t.requestPage.backHome}
         </Link>
-        
-        <motion.div 
-          initial={{ opacity: 0, y: 20 }} 
-          animate={{ opacity: 1, y: 0 }} 
-          className="bg-surface p-8 rounded-3xl border border-primary/20 shadow-2xl text-center"
-        >
-          <div className="w-20 h-20 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6">
-            <DollarSign className="text-primary" size={40} />
-          </div>
 
+        <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
           <h1 className="text-3xl font-bold text-primary mb-4">{t.requestPage.title}</h1>
-          <p className="text-gray-400 mb-8 leading-relaxed">{t.requestPage.desc}</p>
+          {/* ✅ تم استخدام subtitle بدلاً من desc */}
+          <p className="text-textMuted mb-8 leading-relaxed">{t.requestPage.subtitle}</p>
 
-          {/* بطاقة السعر */}
-          <div className="bg-black/50 border border-primary/30 rounded-2xl p-6 mb-8">
-            <p className="text-sm text-gray-400 mb-2">{t.requestPage.priceLabel}</p>
-            <p className="text-4xl font-black text-white">{t.requestPage.priceValue}</p>
-          </div>
-
-          {/* قسم التواصل */}
-          <div className="space-y-4">
-            <p className="text-gray-300 font-medium">{t.requestPage.contactLabel}</p>
-            
-            <div className="text-2xl font-bold text-primary tracking-wider" dir="ltr">
-              {t.requestPage.phoneNumber}
+          {status === "success" && (
+            <div className="bg-green-500/10 border border-green-500/30 text-green-500 p-4 rounded-xl mb-6">
+              {t.requestPage.success}
             </div>
+          )}
 
-            <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
-              {/* زر واتساب */}
-              <a 
-                href={`https://wa.me/${phoneNumber}?text=${encodeURIComponent(lang === 'ar' ? 'مرحباً، أريد شراء تطبيق من Kenton Software' : 'Hello, I want to purchase an application from Kenton Software')}`}
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="flex items-center justify-center gap-2 bg-green-500 text-black px-6 py-3 rounded-xl font-bold hover:bg-green-400 transition-all shadow-[0_0_15px_rgba(34,197,94,0.4)]"
-              >
-                <MessageCircle size={20} /> {t.requestPage.whatsappBtn}
-              </a>
-
-              {/* زر الاتصال */}
-              <a 
-                href={`tel:${phoneNumber}`}
-                className="flex items-center justify-center gap-2 bg-transparent border border-primary/50 text-primary px-6 py-3 rounded-xl font-bold hover:bg-primary/10 transition-all"
-              >
-                <Phone size={20} /> {t.requestPage.callBtn}
-              </a>
+          {status === "error" && (
+            <div className="bg-red-500/10 border border-red-500/30 text-red-500 p-4 rounded-xl mb-6">
+              {t.requestPage.error}
             </div>
-          </div>
+          )}
+
+          <form onSubmit={handleSubmit} className="space-y-4">
+            <div>
+              <label className="block text-sm font-medium mb-1 text-textMain">{t.requestPage.name}</label>
+              <input
+                type="text"
+                required
+                value={formData.name}
+                onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                className="w-full px-4 py-3 rounded-xl bg-surface border border-primary/20 text-textMain focus:outline-none focus:border-primary"
+              />
+            </div>
+            <div>
+              <label className="block text-sm font-medium mb-1 text-textMain">{t.requestPage.email}</label>
+              <input
+                type="email"
+                required
+                value={formData.email}
+                onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                className="w-full px-4 py-3 rounded-xl bg-surface border border-primary/20 text-textMain focus:outline-none focus:border-primary"
+              />
+            </div>
+            <div>
+              <label className="block text-sm font-medium mb-1 text-textMain">{t.requestPage.phone}</label>
+              <input
+                type="tel"
+                required
+                value={formData.phone}
+                onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                className="w-full px-4 py-3 rounded-xl bg-surface border border-primary/20 text-textMain focus:outline-none focus:border-primary"
+                dir="ltr"
+              />
+            </div>
+            <div>
+              <label className="block text-sm font-medium mb-1 text-textMain">{t.requestPage.message}</label>
+              <textarea
+                rows={4}
+                value={formData.message}
+                onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                className="w-full px-4 py-3 rounded-xl bg-surface border border-primary/20 text-textMain focus:outline-none focus:border-primary resize-none"
+              />
+            </div>
+            <button type="submit" className="btn-primary w-full">
+              <Send size={18} /> {t.requestPage.send}
+            </button>
+          </form>
         </motion.div>
       </section>
     </main>
