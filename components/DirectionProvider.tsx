@@ -14,8 +14,6 @@ export function DirectionProvider({ children }: { children: React.ReactNode }) {
     if (mounted) {
       document.documentElement.dir = lang === "ar" ? "rtl" : "ltr";
       document.documentElement.lang = lang;
-      
-      // تغيير الخط بناءً على اللغة
       if (lang === "ar") {
         document.body.style.fontFamily = "var(--font-cairo), sans-serif";
       } else {
@@ -24,9 +22,6 @@ export function DirectionProvider({ children }: { children: React.ReactNode }) {
     }
   }, [lang, mounted]);
 
-  if (!mounted) {
-    return <>{children}</>;
-  }
-
+  if (!mounted) return <>{children}</>;
   return <>{children}</>;
 }

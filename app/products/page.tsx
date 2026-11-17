@@ -1,0 +1,44 @@
+"use client";
+import { motion } from "framer-motion";
+import { Stethoscope, BookOpen, Store, ArrowRight } from "lucide-react";
+import { useLangStore } from "@/store/langStore";
+import { translations } from "@/data/translations";
+import { useEffect, useState } from "react";
+import Link from "next/link";
+
+export default function ProductsPage() {
+  const [mounted, setMounted] = useState(false);
+  const { lang } = useLangStore();
+  useEffect(() => { setMounted(true); }, []);
+  if (!mounted) return null;
+
+  const t = translations[lang];
+
+  const products = [
+    { id: "tomo", name: "ToMo System", desc: t.tomoPage.subtitle, icon: <Stethoscope size={32} />, href: "/products/tomo", color: "text-blue-500", bg: "bg-blue-500/10" },
+    { id: "kuma", name: "Kuma System", desc: t.kumaPage.subtitle, icon: <Store size={32} />, href: "/products/kuma", color: "text-green-500", bg: "bg-green-500/10" },
+    { id: "zebra", name: "ZeBrA System", desc: t.zebraPage.subtitle, icon: <BookOpen size={32} />, href: "/products/zebra", color: "text-purple-500", bg: "bg-purple-500/10" },
+    { id: "matrix", name: "mAtReX System", desc: t.matrixPage.subtitle, icon: <Store size={32} />, href: "/products/matrix", color: "text-orange-500", bg: "bg-orange-500/10" },
+  ];
+
+  return (
+    <main className="min-h-screen bg-background text-textMain pt-20">
+      <section className="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+        <div className="text-center mb-16">
+          <h1 className="text-5xl font-black mb-4">{t.products.title}</h1>
+          <p className="text-xl text-textMuted">{t.products.subtitle}</p>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {products.map((product, index) => (
+            <motion.div key={product.id} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: index * 0.1 }} className="card group">
+              <div className={`w-16 h-16 rounded-xl ${product.bg} ${product.color} flex items-center justify-center mb-6 group-hover:scale-110 transition-transform`}>{product.icon}</div>
+              <h3 className="text-2xl font-bold mb-2 text-textMain">{product.name}</h3>
+              <p className="text-textMuted mb-6">{product.desc}</p>
+              <Link href={product.href} className="btn-secondary w-full text-sm">{t.products.readMore} <ArrowRight size={16} className={lang === 'ar' ? 'rotate-180' : ''} /></Link>
+            </motion.div>
+          ))}
+        </div>
+      </section>
+    </main>
+  );
+}

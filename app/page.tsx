@@ -26,14 +26,14 @@ export default function Home() {
           <div className="inline-block bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-semibold mb-4">
             {t.home.heroSubtitle}
           </div>
-          <h1 className="text-5xl md:text-7xl font-black leading-tight">{t.home.heroTitle}</h1>
-          <p className="text-xl text-gray-400">{t.home.heroSubtitle}</p>
+          <h1 className="text-5xl md:text-7xl font-black leading-tight text-textMain">{t.home.heroTitle}</h1>
+          <p className="text-xl text-textMuted">{t.home.heroSubtitle}</p>
           <div className="flex flex-wrap justify-center gap-4 pt-6">
-            <Link href="/products" className="bg-primary text-black px-8 py-4 rounded-xl font-bold shadow-glow hover:bg-opacity-90 transition-all flex items-center gap-2">
+            <Link href="/products" className="btn-primary">
               {t.home.exploreProducts} <ArrowRight size={20} className={lang === 'ar' ? 'rotate-180' : ''} />
             </Link>
-            <Link href="/#contact" className="border border-primary/50 text-primary px-8 py-4 rounded-xl font-bold hover:bg-primary/10 transition-all">
-              {t.home.contactUs}
+            <Link href="/services" className="btn-secondary">
+              {t.home.exploreServices}
             </Link>
           </div>
         </motion.div>
