@@ -1,7 +1,7 @@
 "use client";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Quote, Star, PlusCircle, X } from "lucide-react";
+import { Star, PlusCircle, X } from "lucide-react";
 import { useLangStore } from "@/store/langStore";
 import { translations } from "@/data/translations";
 
@@ -59,12 +59,6 @@ export function TestimonialsSection() {
 
   if (!mounted) return null;
 
-  const defaultTestimonials = [
-    { name: t.testimonials.t1Name, role: t.testimonials.t1Role, text: t.testimonials.t1Text, rating: 5 },
-    { name: t.testimonials.t2Name, role: t.testimonials.t2Role, text: t.testimonials.t2Text, rating: 5 },
-    { name: t.testimonials.t3Name, role: t.testimonials.t3Role, text: t.testimonials.t3Text, rating: 4 },
-  ];
-
   return (
     <section className="py-20 bg-surface-light">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -79,63 +73,43 @@ export function TestimonialsSection() {
           </button>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {reviews.length === 0 && defaultTestimonials.map((item, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              viewport={{ once: true }}
-              className="card relative"
-            >
-              <Quote size={40} className="text-primary/20 absolute top-4 right-4" />
-              <div className="flex gap-1 mb-4">
-                {[...Array(5)].map((_, i) => (
-                  <Star key={i} size={16} className={i < item.rating ? "text-yellow-400 fill-yellow-400" : "text-gray-500"} />
-                ))}
-              </div>
-              <p className="text-textMuted mb-6 leading-relaxed">"{item.text}"</p>
-              <div className="flex items-center gap-3">
-                <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center text-primary font-bold text-lg">
-                  {item.name.charAt(0)}
+        {/* ✅ عرض التقييمات (فارغ إذا لم يكن هناك تقييمات) */}
+        {reviews.length === 0 ? (
+          <div className="text-center py-12 text-textMuted">
+             <p>{t.testimonials.noReviews}</p>
+          </div>
+        ) : (
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {reviews.map((review, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                className="card relative"
+              >
+                <div className="flex gap-1 mb-4">
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} size={16} className={i < review.rating ? "text-yellow-400 fill-yellow-400" : "text-gray-500"} />
+                  ))}
                 </div>
-                <div>
-                  <h4 className="font-bold text-textMain">{item.name}</h4>
-                  <p className="text-sm text-textMuted">{item.role}</p>
+                {/* ✅ إزالة علامات الاقتباس */}
+                <p className="text-textMuted mb-6 leading-relaxed">{review.text}</p>
+                <div className="flex items-center gap-3">
+                  <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center text-primary font-bold text-lg">
+                    {review.name.charAt(0)}
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-textMain">{review.name}</h4>
+                    <p className="text-sm text-textMuted">{review.date}</p>
+                  </div>
                 </div>
-              </div>
-            </motion.div>
-          ))}
-
-          {reviews.map((review, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              className="card relative"
-            >
-              <Quote size={40} className="text-primary/20 absolute top-4 right-4" />
-              <div className="flex gap-1 mb-4">
-                {[...Array(5)].map((_, i) => (
-                  <Star key={i} size={16} className={i < review.rating ? "text-yellow-400 fill-yellow-400" : "text-gray-500"} />
-                ))}
-              </div>
-              <p className="text-textMuted mb-6 leading-relaxed">"{review.text}"</p>
-              <div className="flex items-center gap-3">
-                <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center text-primary font-bold text-lg">
-                  {review.name.charAt(0)}
-                </div>
-                <div>
-                  <h4 className="font-bold text-textMain">{review.name}</h4>
-                  <p className="text-sm text-textMuted">{review.date}</p>
-                </div>
-              </div>
-            </motion.div>
-          ))}
-        </div>
+              </motion.div>
+            ))}
+          </div>
+        )}
       </div>
 
+      {/* نافذة إضافة تقييم */}
       <AnimatePresence>
         {isModalOpen && (
           <div className="fixed inset-0 z-[100] flex items-center justify-center p-4">
