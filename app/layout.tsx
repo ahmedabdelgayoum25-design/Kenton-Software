@@ -7,7 +7,7 @@ const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 const cairo = Cairo({ subsets: ["arabic"], variable: "--font-cairo" });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://kenton-software.vercel.app"), // ✅ رابط موقعك
+  metadataBase: new URL("https://kenton-software.vercel.app"),
   title: "Kenton Software | Integrated Software Solutions",
   description: "Kenton Software provides professional, fast, and secure desktop applications.",
   openGraph: {
@@ -17,16 +17,14 @@ export const metadata: Metadata = {
     siteName: "Kenton Software",
     locale: "ar_AR",
     type: "website",
-    // ✅ لا نحتاج لكتابة مسار الصورة هنا لأن Next.js سيجدها تلقائياً في مجلد app
   },
   twitter: {
     card: "summary_large_image",
     title: "Kenton Software | Integrated Software Solutions",
     description: "Kenton Software provides professional, fast, and secure desktop applications.",
-    // ✅ لا نحتاج لكتابة مسار الصورة هنا أيضاً
   },
   icons: {
-    icon: "/icon.png", // الأيقونة الصغيرة (إذا كانت موجودة)
+    icon: "/icon.png",
   },
 };
 
