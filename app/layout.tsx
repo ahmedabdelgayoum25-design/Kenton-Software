@@ -17,7 +17,7 @@ export const metadata: Metadata = {
     siteName: "Kenton Software",
     images: [
       {
-        url: "/opengraph-image.png", // ✅ اسم الصورة التي رفعتها
+        url: "/kinton-logo.png", // ✅ اسم الصورة في مجلد public
         width: 1200,
         height: 630,
         alt: "Kenton Software Logo",
@@ -30,9 +30,9 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Kenton Software | Integrated Software Solutions",
     description: "Kenton Software provides professional, fast, and secure desktop applications.",
-    images: ["/opengraph-image.png"], // ✅ نفس الصورة
+    images: ["/kinton-logo.png"], // ✅ نفس الصورة
   },
-  // ✅ إضافة الأيقونة الصغيرة للمتصفح
+  // ✅ إضافة الأيقونة الصغيرة للمتصفح (اختياري)
   icons: {
     icon: "/icon.png", 
   },
