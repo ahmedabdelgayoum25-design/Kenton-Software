@@ -4,12 +4,14 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Star, PlusCircle, X, Send } from "lucide-react";
 import { useLangStore } from "@/store/langStore";
 import { translations } from "@/data/translations";
+import { supabase } from "@/utils/supabase"; // ✅ استيراد Supabase
 
 interface Review {
+  id: number;
   name: string;
   rating: number;
   text: string;
-  date: string;
+  created_at: string;
 }
 
 export function TestimonialsSection() {
@@ -20,42 +22,66 @@ export function TestimonialsSection() {
   const [form, setForm] = useState({ name: "", rating: 5, text: "" });
   const [status, setStatus] = useState<"idle" | "success" | "error">("idle");
   const [hoverRating, setHoverRating] = useState(0);
+  const [loading, setLoading] = useState(true);
 
   const t = translations[lang];
 
+  // ✅ جلب التقييمات من Supabase عند بدء التشغيل
   useEffect(() => {
     setMounted(true);
-    const savedReviews = localStorage.getItem("kenton-reviews");
-    if (savedReviews) {
-      setReviews(JSON.parse(savedReviews));
-    }
+    fetchReviews();
   }, []);
 
-  useEffect(() => {
-    if (mounted) {
-      localStorage.setItem("kenton-reviews", JSON.stringify(reviews));
-    }
-  }, [reviews, mounted]);
+  const fetchReviews = async () => {
+    try {
+      const { data, error } = await supabase
+        .from('reviews')
+        .select('*')
+        .order('created_at', { ascending: false });
 
-  const handleSubmit = (e: React.FormEvent) => {
+      if (error) throw error;
+      setReviews(data || []);
+    } catch (error) {
+      console.error('Error fetching reviews:', error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!form.name || !form.text) {
       setStatus("error");
       return;
     }
-    const newReview: Review = {
-      name: form.name,
-      rating: form.rating,
-      text: form.text,
-      date: new Date().toLocaleDateString(lang === 'ar' ? 'ar-EG' : 'en-GB'),
-    };
-    setReviews([newReview, ...reviews]);
-    setForm({ name: "", rating: 5, text: "" });
-    setStatus("success");
-    setTimeout(() => {
-      setIsModalOpen(false);
-      setStatus("idle");
-    }, 2000);
+
+    try {
+      const { error } = await supabase
+        .from('reviews')
+        .insert([
+          { 
+            name: form.name, 
+            rating: form.rating, 
+            text: form.text 
+          }
+        ]);
+
+      if (error) throw error;
+
+      setForm({ name: "", rating: 5, text: "" });
+      setStatus("success");
+      
+      // ✅ إعادة تحميل التقييمات بعد الإضافة
+      await fetchReviews();
+
+      setTimeout(() => {
+        setIsModalOpen(false);
+        setStatus("idle");
+      }, 2000);
+    } catch (error) {
+      console.error('Error submitting review:', error);
+      setStatus("error");
+    }
   };
 
   if (!mounted) return null;
@@ -74,15 +100,19 @@ export function TestimonialsSection() {
           </button>
         </div>
 
-        {reviews.length === 0 ? (
+        {loading ? (
+          <div className="text-center py-12 text-textMuted">
+            <p>{lang === 'ar' ? 'جاري تحميل التقييمات...' : 'Loading reviews...'}</p>
+          </div>
+        ) : reviews.length === 0 ? (
           <div className="text-center py-12 text-textMuted">
              <p>{t.testimonials.noReviews}</p>
           </div>
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {reviews.map((review, index) => (
+            {reviews.map((review) => (
               <motion.div
-                key={index}
+                key={review.id}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 className="card relative"
@@ -99,7 +129,9 @@ export function TestimonialsSection() {
                   </div>
                   <div>
                     <h4 className="font-bold text-textMain">{review.name}</h4>
-                    <p className="text-sm text-textMuted">{review.date}</p>
+                    <p className="text-sm text-textMuted">
+                      {new Date(review.created_at).toLocaleDateString(lang === 'ar' ? 'ar-EG' : 'en-GB')}
+                    </p>
                   </div>
                 </div>
               </motion.div>
