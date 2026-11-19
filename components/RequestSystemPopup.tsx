@@ -11,7 +11,7 @@ interface RequestSystemPopupProps {
 
 export default function RequestSystemPopup({ isOpen, onClose }: RequestSystemPopupProps) {
   const { lang } = useLangStore();
-  const isRtl = lang === 'ar';
+  const isRtl = lang === "ar";
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
 
@@ -21,12 +21,14 @@ export default function RequestSystemPopup({ isOpen, onClose }: RequestSystemPop
     if (!name.trim() || !description.trim()) return;
 
     const message = isRtl
-      ? `مرحباً، أنا ${name}.\nأريد نظاماً بالمواصفات التالية:\n${description}`
-      : `Hello, I am ${name}.\nI want a system with the following specifications:\n${description}`;
+      ? `مرحباً، أنا ${name}.\n\nأريد نظاماً بالمواصفات التالية:\n${description}`
+      : `Hello, I am ${name}.\n\nI want a system with the following specifications:\n${description}`;
 
-    window.open(`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`, '_blank');
-    
-    // إعادة تعيين الحقول وإغلاق النافذة
+    window.open(
+      `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`,
+      "_blank"
+    );
+
     setName("");
     setDescription("");
     onClose();
@@ -61,12 +63,13 @@ export default function RequestSystemPopup({ isOpen, onClose }: RequestSystemPop
                 {isRtl ? "اطلب نظامك الخاص" : "Request Your Custom System"}
               </h2>
               <p className="text-gray-400 text-sm">
-                {isRtl ? "صف النظام الذي تريده وسنتواصل معك عبر واتساب." : "Describe the system you want and we'll contact you via WhatsApp."}
+                {isRtl
+                  ? "صف النظام الذي تريده وسنتواصل معك عبر واتساب."
+                  : "Describe the system you want and we'll contact you via WhatsApp."}
               </p>
             </div>
 
             <div className="space-y-5">
-              {/* حقل الاسم */}
               <div>
                 <label className="block text-sm font-bold text-white mb-2 flex items-center gap-2">
                   <User size={16} className="text-primary" />
@@ -81,7 +84,6 @@ export default function RequestSystemPopup({ isOpen, onClose }: RequestSystemPop
                 />
               </div>
 
-              {/* حقل وصف النظام */}
               <div>
                 <label className="block text-sm font-bold text-white mb-2 flex items-center gap-2">
                   <FileText size={16} className="text-primary" />
@@ -90,17 +92,20 @@ export default function RequestSystemPopup({ isOpen, onClose }: RequestSystemPop
                 <textarea
                   value={description}
                   onChange={(e) => setDescription(e.target.value)}
-                  placeholder={isRtl ? "مثال: أريد نظام إدارة صيدلية يدعم المخزون والمبيعات والفواتير..." : "Example: I want a pharmacy management system that supports inventory, sales, and invoices..."}
+                  placeholder={
+                    isRtl
+                      ? "مثال: أريد نظام إدارة صيدلية يدعم المخزون والمبيعات والفواتير..."
+                      : "Example: I want a pharmacy management system that supports inventory, sales, and invoices..."
+                  }
                   rows={4}
                   className="w-full bg-black/50 border border-white/10 rounded-xl px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-primary transition-colors resize-none"
                 />
               </div>
 
-              {/* زر الإرسال */}
               <button
                 onClick={handleSubmit}
                 disabled={!name.trim() || !description.trim()}
-                className="w-full bg-primary text-black py-3 rounded-xl font-bold hover:bg-opacity-90 transition-all flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
+                className="w-full bg-primary text-black py-3.5 rounded-xl font-bold hover:bg-opacity-90 transition-all flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 <Send size={18} />
                 {isRtl ? "إرسال الطلب عبر واتساب" : "Send via WhatsApp"}
