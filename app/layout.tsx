@@ -15,26 +15,18 @@ export const metadata: Metadata = {
     description: "Kenton Software provides professional, fast, and secure desktop applications.",
     url: "https://kenton-software.vercel.app",
     siteName: "Kenton Software",
-    images: [
-      {
-        url: "/kinton-logo.png", // ✅ اسم الصورة في مجلد public
-        width: 1200,
-        height: 630,
-        alt: "Kenton Software Logo",
-      },
-    ],
     locale: "ar_AR",
     type: "website",
+    // ✅ لا نحتاج لكتابة مسار الصورة هنا لأن Next.js سيجدها تلقائياً في مجلد app
   },
   twitter: {
     card: "summary_large_image",
     title: "Kenton Software | Integrated Software Solutions",
     description: "Kenton Software provides professional, fast, and secure desktop applications.",
-    images: ["/kinton-logo.png"], // ✅ نفس الصورة
+    // ✅ لا نحتاج لكتابة مسار الصورة هنا أيضاً
   },
-  // ✅ إضافة الأيقونة الصغيرة للمتصفح (اختياري)
   icons: {
-    icon: "/icon.png", 
+    icon: "/icon.png", // الأيقونة الصغيرة (إذا كانت موجودة)
   },
 };
 
