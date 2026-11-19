@@ -5,7 +5,6 @@ import { Navbar } from "@/components/Navbar";
 import { HeroSection } from "@/components/HeroSection";
 import { ProductsSection } from "@/components/ProductsSection";
 import { FeaturesSection } from "@/components/FeaturesSection";
-import { TestimonialsSection } from "@/components/TestimonialsSection"; // ✅
 import { Footer } from "@/components/Footer";
 
 export default function Home() {
@@ -21,7 +20,7 @@ export default function Home() {
         <HeroSection />
         <ProductsSection />
         <FeaturesSection />
-        <TestimonialsSection /> {/* ✅ القسم هنا */}
+        {/* ✅ تم حذف TestimonialsSection من هنا */}
       </div>
       <Footer />
     </main>

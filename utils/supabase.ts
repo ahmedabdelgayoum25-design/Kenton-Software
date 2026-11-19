@@ -1,9 +1,12 @@
 import { createClient } from '@supabase/supabase-js';
 
-// ✅ ضع هنا الرابط الذي نسخته من Supabase
-const supabaseUrl = 'xkaxdlygaijvglnboevr'; 
+// ✅ قراءة الرابط والمفتاح من متغيرات البيئة
+const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || '';
+const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || '';
 
-// ✅ ضع هنا المفتاح الذي نسخته من Supabase
-const supabaseAnonKey = 'eu-north-1'; 
+// ✅ التحقق من وجود الرابط قبل إنشاء العميل
+if (!supabaseUrl || !supabaseAnonKey) {
+  console.error('Missing Supabase URL or Anon Key. Please check your .env.local file.');
+}
 
 export const supabase = createClient(supabaseUrl, supabaseAnonKey);
