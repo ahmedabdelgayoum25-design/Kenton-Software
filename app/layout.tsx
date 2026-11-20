@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter, Cairo } from "next/font/google";
 import "./globals.css";
 import { DirectionProvider } from "@/components/DirectionProvider";
+import { FloatingWhatsApp } from "@/components/FloatingWhatsApp"; // ✅
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 const cairo = Cairo({ subsets: ["arabic"], variable: "--font-cairo" });
@@ -23,9 +24,6 @@ export const metadata: Metadata = {
     title: "Kenton Software | Integrated Software Solutions",
     description: "Kenton Software provides professional, fast, and secure desktop applications.",
   },
-  icons: {
-    icon: "/icon.png",
-  },
 };
 
 export default function RootLayout({
@@ -38,6 +36,7 @@ export default function RootLayout({
       <body className={`${inter.variable} ${cairo.variable} antialiased`}>
         <DirectionProvider>
           {children}
+          <FloatingWhatsApp /> {/* ✅ زر واتساب عائم في كل الصفحات */}
         </DirectionProvider>
       </body>
     </html>
