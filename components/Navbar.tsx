@@ -20,6 +20,7 @@ export function Navbar() {
     { href: "/", label: t.nav.home },
     { href: "/about", label: t.nav.about },
     { href: "/products", label: t.nav.products },
+    { href: "/accessories", label: t.nav.accessories }, // ✅ رابط الإكسسوارات
     { href: "/services", label: t.nav.services },
     { href: "/contact", label: t.nav.contact },
   ];
@@ -35,7 +36,6 @@ export function Navbar() {
                 className="p-2 rounded-lg bg-surface border border-white/10 text-textMuted hover:text-primary transition-colors"
                 title={lang === 'ar' ? 'رجوع' : 'Back'}
               >
-                {/* ✅ السهم لليسار دائماً */}
                 <ArrowLeft size={20} />
               </button>
             )}
@@ -46,7 +46,9 @@ export function Navbar() {
           </div>
           <div className="hidden md:flex items-center gap-8">
             {navLinks.map((link) => (
-              <Link key={link.href} href={link.href} className="text-textMuted hover:text-primary transition-colors font-medium">{link.label}</Link>
+              <Link key={link.href} href={link.href} className="text-textMuted hover:text-primary transition-colors font-medium">
+                {link.label}
+              </Link>
             ))}
             <button onClick={toggleLang} className="flex items-center gap-2 bg-surface border border-white/10 px-4 py-2 rounded-lg text-textMain hover:border-primary transition-colors">
               <Globe size={18} /> {lang === "ar" ? "English" : "Arabic"}
@@ -60,7 +62,9 @@ export function Navbar() {
       {isOpen && (
         <div className="md:hidden bg-surface border-b border-white/10 px-4 pt-2 pb-4 space-y-2">
           {navLinks.map((link) => (
-            <Link key={link.href} href={link.href} className="block text-textMuted hover:text-primary py-2 font-medium" onClick={() => setIsOpen(false)}>{link.label}</Link>
+            <Link key={link.href} href={link.href} className="block text-textMuted hover:text-primary py-2 font-medium" onClick={() => setIsOpen(false)}>
+              {link.label}
+            </Link>
           ))}
           <button onClick={toggleLang} className="flex items-center gap-2 bg-background w-full px-4 py-2 rounded-lg text-textMain mt-2">
             <Globe size={18} /> {lang === "ar" ? "English" : "Arabic"}

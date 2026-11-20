@@ -1,6 +1,6 @@
 "use client";
 import { motion } from "framer-motion";
-import { Stethoscope, BookOpen, Store, ArrowRight, MessageCircle, Filter, Package } from "lucide-react";
+import { Stethoscope, BookOpen, Store, ArrowRight, Filter, MessageCircle, Package } from "lucide-react";
 import Link from "next/link";
 import { useLangStore } from "@/store/langStore";
 import { translations } from "@/data/translations";
