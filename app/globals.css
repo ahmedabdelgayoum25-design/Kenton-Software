@@ -4,7 +4,6 @@
 @tailwind components;
 @tailwind utilities;
 
-/* ✅ الثيم الداكن الكلاسيكي */
 :root {
   --background: #0a0a0a;
   --surface: #171717;
@@ -28,7 +27,6 @@ html[dir="rtl"] body {
   font-family: 'Cairo', sans-serif;
 }
 
-/* ===== أزرار ===== */
 .btn-primary {
   display: inline-flex;
   align-items: center;
@@ -90,7 +88,6 @@ html[dir="rtl"] body {
   transform: translateY(-2px);
 }
 
-/* ===== بطاقات ===== */
 .card {
   padding: 2rem;
   border-radius: 1rem;
@@ -105,7 +102,6 @@ html[dir="rtl"] body {
   box-shadow: var(--glow);
 }
 
-/* ===== رسوم متحركة ===== */
 @keyframes float {
   0% { transform: translateY(0px); }
   50% { transform: translateY(-10px); }
@@ -116,7 +112,6 @@ html[dir="rtl"] body {
   animation: float 3s ease-in-out infinite;
 }
 
-/* ===== شريط التمرير ===== */
 ::-webkit-scrollbar { width: 8px; }
 ::-webkit-scrollbar-track { background: var(--background); }
 ::-webkit-scrollbar-thumb { background: var(--primary); border-radius: 4px; }

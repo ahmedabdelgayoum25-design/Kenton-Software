@@ -5,6 +5,7 @@ import { Navbar } from "@/components/Navbar";
 import { HeroSection } from "@/components/HeroSection";
 import { ProductsSection } from "@/components/ProductsSection";
 import { FeaturesSection } from "@/components/FeaturesSection";
+import { VideoSection } from "@/components/VideoSection"; // ✅ إضافة الفيديو
 import { Footer } from "@/components/Footer";
 
 export default function Home() {
@@ -19,8 +20,8 @@ export default function Home() {
       <div className="pt-20">
         <HeroSection />
         <ProductsSection />
+        <VideoSection /> {/* ✅ الفيديو التعريفي هنا */}
         <FeaturesSection />
-        {/* ✅ تم حذف TestimonialsSection من هنا */}
       </div>
       <Footer />
     </main>
