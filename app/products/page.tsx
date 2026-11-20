@@ -1,6 +1,6 @@
 "use client";
 import { motion } from "framer-motion";
-import { Stethoscope, BookOpen, Store, ArrowRight, Filter, MessageCircle, Package } from "lucide-react";
+import { Stethoscope, BookOpen, Store, ArrowRight, Filter, MessageCircle } from "lucide-react";
 import Link from "next/link";
 import { useLangStore } from "@/store/langStore";
 import { translations } from "@/data/translations";
@@ -38,7 +38,7 @@ export default function ProductsPage() {
 
   return (
     <main className="min-h-screen bg-background text-textMain pt-20">
-      <div className="max-w-7xl mx-auto px-4 pt-8">
+      <div className="max-w-7xl mx-auto px-4 pt-8 pb-20">
         <BackButton />
         
         <div className="text-center mb-12">
@@ -85,15 +85,6 @@ export default function ProductsPage() {
               <MessageCircle size={22} /> {isRtl ? "اطلب نظامك الخاص الآن" : "Request Your Custom System"}
             </button>
           </div>
-        </div>
-
-        {/* رابط لصفحة الإكسسوارات */}
-        <div className="text-center pb-20">
-          <Link href="/accessories" className="inline-flex items-center gap-3 text-lg font-bold text-primary hover:text-primaryHover transition-colors">
-            <Package size={24} />
-            {isRtl ? "تصفح الإكسسوارات والأجهزة الإلكترونية" : "Browse Accessories & Electronics"}
-            <ArrowRight size={20} className={isRtl ? "rotate-180" : ""} />
-          </Link>
         </div>
       </div>
 
