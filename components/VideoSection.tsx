@@ -28,12 +28,12 @@ export function VideoSection() {
           whileInView={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="relative rounded-3xl overflow-hidden border-2 border-primary/30 shadow-2xl aspect-[9/16] max-w-sm mx-auto" // ✅ تم تعديل النسبة لأن الفيديو Short
+          className="relative rounded-3xl overflow-hidden border-2 border-primary/30 shadow-2xl aspect-[9/16] max-w-sm mx-auto"
         >
-          {/* ✅ تم وضع معرف الفيديو الخاص بك */}
+          {/* ✅ تم تحديث معرف الفيديو هنا */}
           <iframe
             className="w-full h-full"
-            src="https://www.youtube.com/embed/NptrfGytuPU" 
+            src="https://www.youtube.com/embed/UwxX27J_IiQ" 
             title="Kenton Software Introduction"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowFullScreen
