@@ -30,10 +30,10 @@ export function VideoSection() {
           viewport={{ once: true }}
           className="relative rounded-3xl overflow-hidden border-2 border-primary/30 shadow-2xl aspect-[9/16] max-w-sm mx-auto"
         >
-          {/* ✅ تم تحديث معرف الفيديو هنا */}
+          {/* ✅ معرف الفيديو الأخير الخاص بك */}
           <iframe
             className="w-full h-full"
-            src="https://www.youtube.com/embed/UwxX27J_IiQ" 
+            src="https://www.youtube.com/embed/UFW_hy3yfRs" 
             title="Kenton Software Introduction"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowFullScreen
